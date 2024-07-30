@@ -7,7 +7,7 @@ Add Tasks: Quickly add new tasks with a simple input field.
 Edit Tasks: Easily edit existing tasks by clicking the edit icon.
 ![EditTask](./src/edittaskts.png)
 Delete Tasks: Remove tasks from your list with a simple click on the delete icon.
-![DeleteTask](./src/deltetaskts.png)
+![DeleteTask](./src/deletetaskts.png)
 
 Technologies Used
 HTML: For the structure of the application.
