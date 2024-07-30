@@ -22,7 +22,7 @@ ul {
 
 li {
     padding: 20px 0 0 20px;
-    align-items: center;
+    align-items: start;
     display: flex;
 }
 
