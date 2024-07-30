@@ -1,0 +1,54 @@
+body{
+background-image: url('./src/background.jpg');
+background-repeat: no-repeat;
+background-size:cover;
+color: white;
+}
+.todo-app{
+    width: 100%;
+    max-width: 540px;
+    background-color:rgba(211, 211, 211, 0.316);
+    box-shadow:  4px 4px 5px #333;
+    padding: 40px 30px 70px ;
+    border-radius: 20px ;
+    margin: 100px auto 20px;
+    backdrop-filter: blur(10px);
+    z-index:1;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding: 20px 0 0 20px;
+    align-items: center;
+    display: flex;
+}
+
+
+
+#task{
+    width: 300px
+  
+}
+
+
+ul li span i {
+    position: relative;
+    width: 30px;
+    height: 20px;
+    border-radius: 15%;
+    text-align: center;
+}
+
+ul li span i:hover {
+    background-color: rgba(128, 128, 128, 0.389);
+}
+
+@media (max-width: 767px) {
+    body {
+        background-size: cover;
+        background-repeat: repeat-y;
+        padding: 20px; 
+}}
