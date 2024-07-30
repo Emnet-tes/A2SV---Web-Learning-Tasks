@@ -1,0 +1,32 @@
+
+body{
+background: linear-gradient(130deg,#153677,#4e085f)
+}
+.todo-app{
+    width:100%;
+    max-width: 540px;
+    background:#eae5f6 ;
+    margin:100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 20px;
+}
+ul {
+    list-style-type: none;
+}
+li{
+    padding:  20px  0  0 20px; 
+}
+#delete-task{
+    padding-left: 150px;
+}
+
+ul li span i{
+    position:relative;
+    width :30px;
+    height: 20px;
+    border-radius: 15%;
+    text-align: center;
+}
+ul li span i:hover{
+    background-color: rgba(128, 128, 128, 0.389);
+}
