@@ -1,7 +1,8 @@
-function addTask(){
-    let taskInput: HTMLInputElement | null = document.getElementById("taskInput") as HTMLInputElement;
 
-    if (taskInput) {
+
+function addTask():void{
+    let taskInput: HTMLInputElement  = document.getElementById("taskInput") as HTMLInputElement;
+
         let taskText: string = taskInput.value.trim();
         if (taskText !== ''){
             const taskList :HTMLElement = document.getElementById("taskList") as HTMLElement;
@@ -12,12 +13,14 @@ function addTask(){
             spanTask.innerHTML = taskText;
             newTask.appendChild(spanTask);
 
-            // delete task
+            // delete task button
 
             let spanDelete = document.createElement("span");
             spanDelete.id = "deleteTask";
             spanDelete.innerHTML = '<i class="fa-solid fa-trash "></i>';
             newTask.appendChild(spanDelete);
+
+            // edit task button
 
             let spanEdit = document.createElement("span");
             spanEdit.id = "editTask";
@@ -28,7 +31,7 @@ function addTask(){
             
         }
 
-    } 
+     
     taskInput.value = '';
 }
 
@@ -41,13 +44,24 @@ if (taskList){
 
         if(target && target.parentElement && target.parentElement.parentElement){
             if (target.parentElement.id === "deleteTask"){
-                target.parentElement.parentElement?.remove()
+
+                deleteTask(target)
+
             }
             else if(target.parentElement.id == "editTask"){
+
                 editTask(target.parentElement.parentElement)
             }
         }
     });
+}
+
+
+function deleteTask(taskElement :HTMLElement){
+    if(taskElement.parentElement && taskElement.parentElement.parentElement){
+        taskElement.parentElement.parentElement.remove()
+    }
+
 }
 
 

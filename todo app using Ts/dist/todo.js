@@ -26,17 +26,21 @@ function addTask() {
 let taskList = document.getElementById('taskList');
 if (taskList) {
     taskList.addEventListener("click", function (e) {
-        var _a;
         const target = e.target;
         if (target && target.parentElement && target.parentElement.parentElement) {
             if (target.parentElement.id === "deleteTask") {
-                (_a = target.parentElement.parentElement) === null || _a === void 0 ? void 0 : _a.remove();
+                deleteTask(target);
             }
             else if (target.parentElement.id == "editTask") {
                 editTask(target.parentElement.parentElement);
             }
         }
     });
+}
+function deleteTask(taskElement) {
+    if (taskElement.parentElement && taskElement.parentElement.parentElement) {
+        taskElement.parentElement.parentElement.remove();
+    }
 }
 function editTask(taskElement) {
     var _a;
