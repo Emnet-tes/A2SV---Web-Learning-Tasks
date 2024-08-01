@@ -22,7 +22,7 @@ export const TodoForm :React.FC<TodoFormProps>= ({addTask}) => {
           type="text"
           placeholder='Enter task ...'
           value = {newTask}
-          className='flex-grow p-2 border border-grey-300 rounded '
+          className='flex-grow p-2 border border-grey-300 rounded mr-3'
           onChange={handleInputChange}
           />
           <button className='bg-blue-500 text-white p-2 rounded'>Add Task</button>
