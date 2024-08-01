@@ -29,7 +29,8 @@ Open your terminal and run the following command to clone the repository:
 
 sh
 Copy code
-git clone  https://github.com/Emnet-tes/A2SV---Web-Learning-Tasks/tree/main/todo%20app%20using%20Js
+git clone  https://github.com/Emnet-tes/A2SV---Web-Learning-Tasks.git
+cd todo app using js
 cd todo-app
 Open the Application:
 Navigate to the project directory and open index.html in your web browser:
