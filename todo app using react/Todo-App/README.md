@@ -1,4 +1,6 @@
 Todo App
+
+
 A simple and intuitive Todo application built using React and TypeScript, styled with Tailwind CSS. This app allows users to add, edit, and delete tasks.
 
 Features
@@ -71,27 +73,42 @@ todo-app/
 ├── package.json
 ├── tsconfig.json
 └── README.md
+
 public/: Contains the public assets and the HTML template.
+
 src/: Contains the source code of the application.
+
 components/: Contains React components.
+
 App.tsx: The main app component.
+
 index.tsx: The entry point of the application.
+
 tailwind.config.js: Tailwind CSS configuration file.
+
 tsconfig.json: TypeScript configuration file.
+
 Usage
+
 Adding a Task
 Enter a task in the input field.
 Click the + Add Task button to add the task to the list.
+
 Editing a Task
 Click the Edit button next to the task you want to edit.
 Enter the new task description in the prompt.
 Click OK to save the changes.
+
 Deleting a Task
 Click the Delete button next to the task you want to delete.
+
+
 Built With
 React - A JavaScript library for building user interfaces.
 TypeScript - A typed superset of JavaScript that compiles to plain JavaScript.
 Tailwind CSS - A utility-first CSS framework for rapid UI development.
+
+
 Contributing
 Contributions are welcome! Please open an issue or submit a pull request for any changes or improvements.
 
