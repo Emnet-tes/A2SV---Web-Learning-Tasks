@@ -14,11 +14,11 @@ export const TodoItem: React.FC<TodoItemProps> = ({
 }) => {
   return (
     <li
-      className="list-group-item flex justify-between  p-1 border border border-grey-300 rounded"
+      className="list-group-item flex justify-between  my-2 border border border-grey-300 rounded"
       key={index}
     >
-      <span className="content-center flex-grow truncate ">{task}</span>
-      <span className="shrink-0 space-x-1">
+      <span className="content-center flex-grow truncate mx-3">{task}</span>
+      <span className="shrink-0 space-x-1 ">
         <button
           type="button"
           className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2  dark:focus:ring-yellow-900"
