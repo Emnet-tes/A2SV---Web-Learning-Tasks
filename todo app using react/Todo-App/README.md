@@ -3,7 +3,7 @@ A simple and intuitive Todo application built using React and TypeScript, styled
 
 Features
 Add new tasks.
-![Add Task](./public/addtasktreact.png)
+![Add Task](./public/addtaskreact.png)
 Edit existing tasks.
 ![Edit Task](./public/edittaskreact.png)
 Delete tasks.
