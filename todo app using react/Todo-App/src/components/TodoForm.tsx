@@ -17,16 +17,18 @@ export const TodoForm :React.FC<TodoFormProps>= ({addTask}) => {
   }
   return (
     <form onSubmit={handleSubmit}>
-        <div className="mb-4 flex justify-between ">
-          <input
+      <div className="mb-4 flex justify-between ">
+        <input
           type="text"
-          placeholder='Enter task ...'
-          value = {newTask}
-          className='flex-grow p-2 border border-grey-300 rounded mr-3'
+          placeholder="Enter task ..."
+          value={newTask}
+          className="flex-grow p-2 border border-grey-300 rounded mr-3"
           onChange={handleInputChange}
-          />
-          <button className='bg-blue-500 text-white p-2 rounded'>Add Task</button>
-        </div>
+        />
+        <button className="bg-blue-500 hover:bg-blue-700 text-white p-2 rounded">
+          Add Task
+        </button>
+      </div>
     </form>
-  )
+  );
 }
