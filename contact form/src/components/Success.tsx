@@ -15,7 +15,7 @@ function Success({onClose}:SuccessPropps) {
 
   return (
     <Modal show={openModal} size="md" onClose={handleClose} popup>
-      <div className="relative p-4 w-full max-w-md h-full md:h-auto">
+      <div className="relative p-5 w-full max-w-md h-full md:h-auto">
         <div className="relative p-4 text-center bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
           <button
             type="button"

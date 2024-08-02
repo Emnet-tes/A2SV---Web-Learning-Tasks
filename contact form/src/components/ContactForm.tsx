@@ -9,7 +9,7 @@ function ContactForm() {
     message: string;
   }
   const form = useForm<formValues>();
-  const { register, control, handleSubmit, formState, reset,trigger } = form;
+  const { register, control, handleSubmit, formState, reset} = form;
   const { errors, isSubmitSuccessful, isSubmitting, isDirty, isValid } =formState;
   const [sucess,setSucess] = useState(false);
 
@@ -27,6 +27,7 @@ function ContactForm() {
   useEffect(()=>{
     if(isSubmitSuccessful)
       { reset()}
+    
   },[isSubmitSuccessful,reset]);
 
   
@@ -125,7 +126,7 @@ function ContactForm() {
             
             `}
             type="submit"
-            disabled={!isDirty||!isValid|| isSubmitting}
+            disabled={!isDirty  || isSubmitting}
           >
             Submit
           </button>
