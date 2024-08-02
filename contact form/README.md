@@ -29,7 +29,7 @@ This is a React-based Contact Form project using `react-hook-form` for form hand
 
 - **Required Fields:**
     All form fields (name, email, and message) are required. The form will display an error message if any of these fields are left empty.
-    ![Required Fields](./public/images/required%20form.pngaddTask.png)
+    ![Required Fields](./public/images/required%20form.png)
 
 - **Email Format Validation:**
     The email field includes validation to ensure that the entered email address is in a valid format. If the format is incorrect, an error message will be displayed.
