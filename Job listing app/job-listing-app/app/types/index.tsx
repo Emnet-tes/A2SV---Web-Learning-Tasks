@@ -1,6 +1,8 @@
 import JobPostingProps from "@/app/types/Job";
 
 export async function getJobPostings() {
+  // npm install json-server -g
+  // json-server --watch --port 4000 ./app/data.json
   const res = await fetch("http://localhost:4000/job_postings");
   if(!res.ok){
      throw new Error("faild to fetch data");
