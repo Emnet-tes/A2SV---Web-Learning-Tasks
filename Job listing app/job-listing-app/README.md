@@ -9,9 +9,9 @@ The Job Listing App is a web application designed to display job postings and th
 - Fetch and display job postings from an json data
     ![Job Postings](public/images/landingpage.png)
 - View detailed information about each job
-    ![detaild information](/job-listing-app/public/images/description1.png)
+    ![detaild information](public/images/description1.png)
 - Categories and required skills are visually highlighted
-![detaild information](/job-listing-app/public/images/description2.png)
+![detaild information](public/images/description2.png)
 - Responsive design for optimal viewing on different devices
 
 ## Technologies Used
