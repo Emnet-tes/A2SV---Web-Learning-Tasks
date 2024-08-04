@@ -1,4 +1,5 @@
 import getAgeGroup, { SingleJobPost } from "@/app/types";
+import JobPostingProps from "@/app/types/Job";
 import { epilogue, poppins } from "@/app/ui/fonts";
 import { AboutCard } from "@/components/aboutCard";
 import { CategoriesCard } from "@/components/categoriesCard";
@@ -11,21 +12,41 @@ interface IdProps {
   searchParams: { [key: string]: string };
 }
 export default async function Id({ searchParams }: IdProps) {
-  const jobPost = await SingleJobPost(searchParams.id);
-  const title = jobPost?.title;
-  const description = jobPost?.description;
-  const responsibilitites = jobPost?.responsibilities;
-  const ideal_candidate = jobPost?.ideal_candidate;
-  const when_where = jobPost?.when_where;
-  const about = jobPost?.about;
-  const categories = jobPost?.about.categories;
-  const requiredSkills = jobPost?.about.required_skills;
-  const gender =
-    ideal_candidate?.gender !== "Any" ? ideal_candidate?.gender : "";
-  const candidate = `${getAgeGroup(
-    ideal_candidate?.age
-  ).trim()} ${gender} ${title}`;
+  const jobPost: JobPostingProps | undefined = await SingleJobPost(
+    searchParams.id
+  );
+  console.log(jobPost);
+  const title = jobPost?.title ?? "";
+  const description = jobPost?.description ?? "";
+  const responsibilities = jobPost?.responsibilities ?? [];
+  const ideal_candidate = jobPost?.ideal_candidate ?? {
+    age: "",
+    gender: "",
+    traits: [],
+  };
+  const when_where = jobPost?.when_where ?? "";
+  const about = jobPost?.about ?? {
+    posted_on: "",
+    deadline: "",
+    location: "",
+    start_date: "",
+    end_date: "",
+    categories: [],
+    required_skills: [],
+  };
 
+  const categories =jobPost?.about.categories
+    ? jobPost?.about.categories
+    : [];
+  const requiredSkills = jobPost?.about.required_skills
+    ? jobPost?.about.required_skills
+    : [];
+
+  const gender = ideal_candidate.gender !== "Any" ? ideal_candidate.gender : "";
+  const candidate = `${getAgeGroup(
+    ideal_candidate.age
+  ).trim()} ${gender} ${title}`.trim();
+  const colors= ['green','yellow','indigo','blue','orange'];
   return (
     <div className="m-[32px] flex">
       <div className="flex-col  max-w-[816px] block items-start space-y-[55px] my-[46px] mr-[62px]">
@@ -55,7 +76,7 @@ export default async function Id({ searchParams }: IdProps) {
           >
             Responsibilities
           </h5>
-          {responsibilitites?.map((res) => (
+          {responsibilities.map((res) => (
             <ResponsibilitesCard text={res} />
           ))}
         </div>
@@ -99,11 +120,11 @@ export default async function Id({ searchParams }: IdProps) {
           >
             About
           </h5>
-          <AboutCard />
-          <AboutCard />
-          <AboutCard />
-          <AboutCard />
-          <AboutCard />
+          <AboutCard text="Posted On" value={about?.posted_on} />
+          <AboutCard text="Deadline" value={about?.deadline} />
+          <AboutCard text="Location" value={about?.location} />
+          <AboutCard text="Start Date" value={about?.start_date} />
+          <AboutCard text="End Date" value={about?.end_date} />
         </div>
 
         {/* categories */}
@@ -115,7 +136,11 @@ export default async function Id({ searchParams }: IdProps) {
           >
             Categories
           </h5>
-          <CategoriesCard />
+          <div className="space-x-[8px] items-start flex">
+            {categories.map((category, index) => (
+              <CategoriesCard text={category} color={colors[index % 5]} />
+            ))}
+          </div>
         </div>
         {/* required skills */}
         <p className="border-b"></p>
@@ -126,7 +151,11 @@ export default async function Id({ searchParams }: IdProps) {
           >
             Required Skills
           </h5>
-          <RequiredSkillsCard />
+          <div className="flex flex-wrap gap-[8px]">
+            {requiredSkills.map((skill, index) => (
+              <RequiredSkillsCard key={index} text={skill} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

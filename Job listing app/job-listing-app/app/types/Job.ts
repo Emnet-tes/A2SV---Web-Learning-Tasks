@@ -16,9 +16,9 @@ export default interface JobPostingProps{
         posted_on:string,
         deadline:string,
         location:string,
-        start_data:string,
+        start_date:string,
         end_date:string,
-        categories:string,
+        categories:string[],
         required_skills:string[]
     },
     company:string,
