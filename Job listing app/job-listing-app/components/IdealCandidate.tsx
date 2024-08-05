@@ -1,7 +1,9 @@
 import React from "react";
 import { epilogue, poppins } from "@/app/ui/fonts";
 import { LuDot } from "react-icons/lu";
-import Props from "@/app/types/props";
+interface Props{
+  text:string
+}
 
 
 export const IdealCandidate = ({ text }: Props) => {

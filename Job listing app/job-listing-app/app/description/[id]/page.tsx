@@ -1,5 +1,5 @@
-import getAgeGroup, { SingleJobPost } from "@/app/types";
-import JobPostingProps from "@/app/types/Job";
+import getAgeGroup, { formatDate, SingleJobPost } from "@/app/types";
+import{ JobPost } from "@/app/types/Job";
 import { epilogue, poppins } from "@/app/ui/fonts";
 import { AboutCard } from "@/components/aboutCard";
 import { CategoriesCard } from "@/components/categoriesCard";
@@ -12,42 +12,11 @@ interface IdProps {
   searchParams: { [key: string]: string };
 }
 export default async function Id({ searchParams }: IdProps) {
-  const jobPost: JobPostingProps | undefined = await SingleJobPost(
-    searchParams.id
-  );
-  console.log(jobPost);
-  const title = jobPost?.title ?? "";
-  const description = jobPost?.description ?? "";
-  const responsibilities = jobPost?.responsibilities ?? [];
-  const ideal_candidate = jobPost?.ideal_candidate ?? {
-    age: "",
-    gender: "",
-    traits: [],
-  };
-  const when_where = jobPost?.when_where ?? "";
-  const about = jobPost?.about ?? {
-    posted_on: "",
-    deadline: "",
-    location: "",
-    start_date: "",
-    end_date: "",
-    categories: [],
-    required_skills: [],
-  };
+  const jobPost = await SingleJobPost(searchParams.id);
 
-  const categories =jobPost?.about.categories
-    ? jobPost?.about.categories
-    : [];
-  const requiredSkills = jobPost?.about.required_skills
-    ? jobPost?.about.required_skills
-    : [];
-
-  const gender = ideal_candidate.gender !== "Any" ? ideal_candidate.gender : "";
-  const candidate = `${getAgeGroup(
-    ideal_candidate.age
-  ).trim()} ${gender} ${title}`.trim();
-  const colors= ['green','yellow','indigo','blue','orange'];
-  return (
+   const jobPosts = Array.isArray(jobPost) ? jobPost : [jobPost];
+   
+  return jobPosts.map((job) => (
     <div className="m-[32px] flex">
       <div className="flex-col  max-w-[816px] block items-start space-y-[55px] my-[46px] mr-[62px]">
         {/* description */}
@@ -63,7 +32,7 @@ export default async function Id({ searchParams }: IdProps) {
               className={`block ${epilogue.className}  text-[16px] leading-[160%] text-[#25324B] text-left`}
               style={{ fontWeight: 400 }}
             >
-              {description}
+              {job.description}
             </p>
           </div>
         </div>
@@ -76,9 +45,15 @@ export default async function Id({ searchParams }: IdProps) {
           >
             Responsibilities
           </h5>
-          {responsibilities.map((res) => (
-            <ResponsibilitesCard text={res} />
-          ))}
+
+          <div className="space-y-[8px] ">
+            {job.responsibilities
+              .split(".")
+              .filter((res) => res.trim() !== "") // Optional: filter out empty strings
+              .map((res, index) => (
+                <ResponsibilitesCard key={index} text={res.trim()} /> // Optional: trim extra whitespace and add a key prop
+              ))}
+          </div>
         </div>
 
         {/* ideal candidate */}
@@ -90,10 +65,17 @@ export default async function Id({ searchParams }: IdProps) {
             Ideal Candidate We Want
           </h5>
           <div className="space-y-[8px]">
-            <IdealCandidate text={candidate} />
-            {ideal_candidate?.traits.map((trait) => (
+            {/* <IdealCandidate text={job.idealCandidate} /> */}
+            {job.idealCandidate
+              .split(".")
+              .filter((res) => res.trim() !== "") // Optional: filter out empty strings
+              .map((res, index) => (
+                <IdealCandidate key={index} text={res.trim()} /> // Optional: trim extra whitespace and add a key prop
+              ))}
+           
+            {/* {ideal_candidate?.traits.map((trait) => (
               <IdealCandidate text={trait} />
-            ))}
+            ))} */}
           </div>
         </div>
 
@@ -106,7 +88,7 @@ export default async function Id({ searchParams }: IdProps) {
           >
             When & Where
           </h5>
-          <WhenAndWhere text={when_where} />
+          <WhenAndWhere text={job.whenAndWhere} />
         </div>
       </div>
 
@@ -120,11 +102,15 @@ export default async function Id({ searchParams }: IdProps) {
           >
             About
           </h5>
-          <AboutCard text="Posted On" value={about?.posted_on} />
-          <AboutCard text="Deadline" value={about?.deadline} />
-          <AboutCard text="Location" value={about?.location} />
-          <AboutCard text="Start Date" value={about?.start_date} />
-          <AboutCard text="End Date" value={about?.end_date} />
+          <AboutCard text="Posted On" value={formatDate(job.datePosted)} />
+          <AboutCard text="Deadline" value={formatDate(job.deadline)} />
+          {Array.isArray(job.location) ? (
+            <AboutCard text="Location" value={job.location} />
+          ) : (
+            <AboutCard text="Location" value={[job.location]} />
+          )}
+          <AboutCard text="Start Date" value={formatDate(job.startDate)} />
+          <AboutCard text="End Date" value={formatDate(job.endDate)} />
         </div>
 
         {/* categories */}
@@ -136,9 +122,9 @@ export default async function Id({ searchParams }: IdProps) {
           >
             Categories
           </h5>
-          <div className="space-x-[8px] items-start flex">
-            {categories.map((category, index) => (
-              <CategoriesCard text={category} color={colors[index % 5]} />
+          <div className="space-x-[8px]  space-y-[8px] items-start flex-col">
+            {job.categories.map((category, index) => (
+              <CategoriesCard text={category} />
             ))}
           </div>
         </div>
@@ -152,12 +138,12 @@ export default async function Id({ searchParams }: IdProps) {
             Required Skills
           </h5>
           <div className="flex flex-wrap gap-[8px]">
-            {requiredSkills.map((skill, index) => (
+            {job.requiredSkills.map((skill, index) => (
               <RequiredSkillsCard key={index} text={skill} />
             ))}
           </div>
         </div>
       </div>
     </div>
-  );
+  ));
 }

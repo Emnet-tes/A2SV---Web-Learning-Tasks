@@ -3,19 +3,23 @@ import JobPostingProps from "@/app/types/Job";
 export async function getJobPostings() {
   // npm install json-server -g
   // json-server --watch --port 4000 ./app/data.json
-  const res = await fetch("http://localhost:4000/job_postings");
+  const res = await fetch("https://akil-backend.onrender.com/opportunities/search");
   if(!res.ok){
      throw new Error("faild to fetch data");
   }
-  const jobPostings: JobPostingProps[] = await res.json();
-  return jobPostings;
+  const jobPostings: JobPostingProps = await res.json();
+
+  return jobPostings.data;
 }
 
 
 export async function SingleJobPost(_id:string){
-  const jobposts = await getJobPostings();
-  const jobpost = await jobposts.find((job:any)=>job.id === _id)
-  return jobpost;
+   const res = await fetch(`https://akil-backend.onrender.com/opportunities/${_id}`);
+   if(!res.ok){
+     throw new Error("faild to fetch data");
+  } 
+   const jobPost : JobPostingProps = await res.json();
+  return jobPost.data;
 }
 
 export default function getAgeGroup(age:string|undefined):string{
@@ -37,4 +41,13 @@ export default function getAgeGroup(age:string|undefined):string{
   
   return `${group}(${age})`;
     
+}
+
+
+export  function formatDate(date:string){
+  const ios = new Date(date);
+  
+  var m = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+return m[(ios.getMonth())]+' '+ ios.getFullYear()+','+ios.getDate();
+// Jul 1, 2023
 }

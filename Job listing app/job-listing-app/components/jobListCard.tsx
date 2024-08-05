@@ -1,26 +1,32 @@
 import Image from "next/image";
 import React from "react";
-import JobPostingProps from "@/app/types/Job";
+import JobPostingProps, { JobListProps, JobPost } from "@/app/types/Job";
 import { epilogue } from "@/app/ui/fonts";
 
-const JobListCard: React.FC<JobPostingProps> = ({
-  title,
-  company,
-  about,
-  description,
-  image,
-}: JobPostingProps) => {
+// const buttonStyles=(color:string,isDisabled:string)=>{
+//   return{
+//     backgroundColor:isDisabled ?'transparent':color,
+//     color:isDisabled ? color:'white',
+//     cursor:isDisabled?'not-allowd':'pointer'
+//   }
+// }
+
+
+function JobListCard({
+  title, orgName, description, logoUrl, location,opType
+}: JobListProps) {
+
+  
   return (
     <div className="relative flex w-full max-w-[56rem]  rounded-xl  bg-clip-border text-gray-700 shadow my-5">
       {/* image */}
       <div className="relative pt-4 overflow-hidden bg-transparent rounded-xl mx-5">
         <Image
-          src={image}
+          src={logoUrl}
           alt="Tania Andrew"
           className="relative inline-block  !rounded-full object-cover object-center "
           width={58}
-          height={66}
-        />
+          height={66} />
       </div>
 
       <div className="flex w-full flex-col gap-0.5 my-4  ">
@@ -40,17 +46,18 @@ const JobListCard: React.FC<JobPostingProps> = ({
             className={`${epilogue.className}  text-[16px] leading-[160%] text-[#7C8493] text-left`}
             style={{ fontWeight: 400, fontStyle: "regular" }}
           >
-            {company}
+            {orgName}
           </p>
           <p className="inline text-[#D6DDEB] text-center">.</p>
 
-          {/* location */}
-          <p
+          {/* location */} 
+          {location.map((loc)=><p
             className={`${epilogue.className} font-regular text-[16px] leading-[160%] text-[#7C8493] text-left`}
             style={{ fontWeight: 400, fontStyle: "regular" }}
           >
-            {about.location}
-          </p>
+          {loc}
+          </p>)}
+          
         </div>
 
         {/* description */}
@@ -87,6 +94,6 @@ const JobListCard: React.FC<JobPostingProps> = ({
       </div>
     </div>
   );
-};
+}
 
 export default JobListCard;

@@ -1,8 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import { epilogue } from "@/app/ui/fonts";
-import Props from "@/app/types/props";
 
+
+interface Props{
+  text:string
+}
 export const WhenAndWhere = ({ text }: Props) => {
   return (
     <div className="space-x-[16px] items-center flex ">
@@ -19,5 +22,6 @@ export const WhenAndWhere = ({ text }: Props) => {
         {text}
       </p>
     </div>
+    
   );
 };

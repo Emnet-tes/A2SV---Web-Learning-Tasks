@@ -6,6 +6,7 @@ import Nav from "./nav";
 
 async function JobPostings() {
   const jobPostings = await getJobPostings();
+  
   return (
     <div className="mx-20 max-w-[66rem] pt-10 mt-5 ">
       <Nav resultNo={jobPostings.length} />
@@ -18,14 +19,11 @@ async function JobPostings() {
           <div className="flex w-full flex-col gap-0.5  ">
             <JobListCard
               title={job.title}
+              orgName={job.orgName}
               description={job.description}
-              responsibilities={job.responsibilities}
-              ideal_candidate={job.ideal_candidate}
-              when_where={job.when_where}
-              about={job.about}
-              company={job.company}
-              image={job.image}
-              id={job.id}
+              logoUrl={job.logoUrl}
+              location={job.location}
+              opType={job.opType}
             />
           </div>
         </Link>

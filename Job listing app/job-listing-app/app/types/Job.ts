@@ -1,29 +1,52 @@
+export default interface JobPostingsProps{
+    success:boolean,
+    message:string,
+    data:JobPost[]
+}
+
+ export interface JobPost {
+  id: string;
+  title: string;
+  description: string;
+  responsibilities: string;
+  requirements: string;
+  idealCandidate: string;
+  categories: string[];
+  opType: string;
+  requiredSkills: string[];
+  whenAndWhere: string;
+  orgId: string;
+  location: string[];
+  startDate: string;
+  endDate: string;
+  deadline: string;
+  datePosted: string;
+  status: string;
+  applicantsCount: number;
+  viewsCount: number;
+  orgName: string;
+  logoUrl: string;
+  isBookmarked: boolean;
+  isRolling: boolean;
+  questions: string | null;
+  perksAndBenefits: string | null;
+  createdAt: Date;
+  updatedAt: Date;
+  orgPrimaryPhone: string;
+  orgEmail: string;
+  average_rating: number;
+  total_reviews: number;
+}
 
 
 
-
-export default interface JobPostingProps{
-    title:string,
-    description:string,
-    responsibilities:string[],
-    ideal_candidate:{
-        age:string,
-        gender:string,
-        traits:string[]
-    },
-    when_where:string,
-    about:{
-        posted_on:string,
-        deadline:string,
-        location:string,
-        start_date:string,
-        end_date:string,
-        categories:string[],
-        required_skills:string[]
-    },
-    company:string,
-    image:string
-    id:string
+export interface JobListProps{
+    title: string;
+  orgName: string;
+  description: string;
+  logoUrl: string;
+ location:string[]
+ opType:string
 }
 
 
