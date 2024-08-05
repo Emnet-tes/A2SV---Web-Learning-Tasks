@@ -1,10 +1,9 @@
-import React from 'react'
+import React from "react";
 import { epilogue, poppins } from "@/app/ui/fonts";
-import Image from 'next/image';
-interface Props{
-    text:string
-}
-export const ResponsibilitesCard = ({text}:Props) => {
+import Image from "next/image";
+import Props from "@/app/types/props";
+
+export const ResponsibilitesCard = ({ text }: Props) => {
   return (
     <div className="space-x-[8px] items-start flex ">
       <Image
@@ -15,10 +14,10 @@ export const ResponsibilitesCard = ({text}:Props) => {
       ></Image>
       <p
         className={`block ${epilogue.className}   leading-[160%] text-[#25324B] text-left w-full`}
-        style={{ fontWeight: 400 ,fontSize:16}}
+        style={{ fontWeight: 400, fontSize: 16 }}
       >
         {text}
       </p>
     </div>
   );
-}
+};

@@ -1,10 +1,9 @@
-import React from 'react'
-import Image from 'next/image';
-import { epilogue } from '@/app/ui/fonts';
-interface Props{
-  text:string|undefined
-}
-export const WhenAndWhere = ({text}:Props) => {
+import React from "react";
+import Image from "next/image";
+import { epilogue } from "@/app/ui/fonts";
+import Props from "@/app/types/props";
+
+export const WhenAndWhere = ({ text }: Props) => {
   return (
     <div className="space-x-[16px] items-center flex ">
       <Image
@@ -17,8 +16,8 @@ export const WhenAndWhere = ({text}:Props) => {
         className={` ${epilogue.className}   leading-[160%] text-[#25324B] text-left w-full`}
         style={{ fontWeight: 400, fontSize: 16 }}
       >
-      {text}
+        {text}
       </p>
     </div>
   );
-}
+};

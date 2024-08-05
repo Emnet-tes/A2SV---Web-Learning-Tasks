@@ -1,10 +1,7 @@
 import React from 'react'
 import { epilogue, poppins } from "@/app/ui/fonts";
 import Image from "next/image";
-interface Props{
-  text:string
-  value:string|undefined
-}
+import Props from '@/app/types/props';
 export const AboutCard = ({text,value}:Props) => {
   return (
    

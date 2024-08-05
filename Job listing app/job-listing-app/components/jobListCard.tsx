@@ -1,10 +1,15 @@
+import Image from "next/image";
+import React from "react";
+import JobPostingProps from "@/app/types/Job";
+import { epilogue } from "@/app/ui/fonts";
 
-import Image from 'next/image';
-import React from 'react'
-import  JobPostingProps  from '@/app/types/Job';
-import {epilogue } from "@/app/ui/fonts";
-
-const JobListCard:React.FC<JobPostingProps> =({title,company,about,description,image}:JobPostingProps) =>{
+const JobListCard: React.FC<JobPostingProps> = ({
+  title,
+  company,
+  about,
+  description,
+  image,
+}: JobPostingProps) => {
   return (
     <div className="relative flex w-full max-w-[56rem]  rounded-xl  bg-clip-border text-gray-700 shadow my-5">
       {/* image */}
@@ -82,6 +87,6 @@ const JobListCard:React.FC<JobPostingProps> =({title,company,about,description,i
       </div>
     </div>
   );
-}
+};
 
 export default JobListCard;

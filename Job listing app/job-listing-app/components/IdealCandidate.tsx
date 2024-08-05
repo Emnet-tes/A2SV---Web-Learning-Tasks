@@ -1,12 +1,11 @@
-import React from 'react'
+import React from "react";
 import { epilogue, poppins } from "@/app/ui/fonts";
 import { LuDot } from "react-icons/lu";
-interface Text{
-    text:string
-}
+import Props from "@/app/types/props";
 
-export const IdealCandidate = ({text}:Text) => {
-    const parts = text.split(':');
+
+export const IdealCandidate = ({ text }: Props) => {
+  const parts = text.split(":");
   return (
     <>
       <span style={{ float: "left", marginRight: "8px" }}>
@@ -25,10 +24,6 @@ export const IdealCandidate = ({text}:Text) => {
           <span style={{ fontWeight: 700 }}>{text}</span>
         )}
       </span>
-      
     </>
-  );}
- 
- 
-  
-
+  );
+};

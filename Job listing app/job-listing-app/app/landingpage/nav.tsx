@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 import { epilogue, poppins } from "@/app/ui/fonts";
-import navProps from '../types/nav';
+import navProps from "../types/nav";
 
-export default function Nav({resultNo}:navProps) {
+export default function Nav({ resultNo }: navProps) {
   return (
     <div className="flex-col pr-20  mr-20  ">
       <h5
