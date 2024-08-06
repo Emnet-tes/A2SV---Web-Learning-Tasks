@@ -1,6 +1,6 @@
 import { Epilogue, Poppins } from "next/font/google"
 
 
-export const poppins = Poppins({subsets:['latin'], weight: ['900']})
+export const poppins = Poppins({subsets:['latin'], weight: ['900','500']})
 
 export const epilogue = Epilogue({subsets:['latin'],weight:['400','500','600']})

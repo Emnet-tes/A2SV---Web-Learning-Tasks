@@ -44,9 +44,6 @@ The Job Listing App is a web application designed to display job postings and th
     npm install
     # or
     yarn install
-
-    npm intall json-server
-    json-server --watch --port 4000 ./app/data.json
     ```
 
 

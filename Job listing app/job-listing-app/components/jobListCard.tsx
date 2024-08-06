@@ -23,7 +23,7 @@ function JobListCard({
       <div className="relative pt-4 overflow-hidden bg-transparent rounded-xl mx-5">
         <Image
           src={logoUrl}
-          alt="Tania Andrew"
+          alt={`${orgName} logo `}
           className="relative inline-block  !rounded-full object-cover object-center "
           width={58}
           height={66} />

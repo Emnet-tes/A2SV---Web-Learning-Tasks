@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/types/JobListingProps"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/types/JobListingProps", "app/api/auth/[...nextauth]/options.js", "app/api/auth/[...nextauth]/route.js"],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,4 @@
-import getAgeGroup, { formatDate, SingleJobPost } from "@/app/types";
-import{ JobPost } from "@/app/types/Job";
+import { formatDate, SingleJobPost } from "@/app/types";
 import { epilogue, poppins } from "@/app/ui/fonts";
 import { AboutCard } from "@/components/aboutCard";
 import { CategoriesCard } from "@/components/categoriesCard";
@@ -14,11 +13,11 @@ interface IdProps {
 export default async function Id({ searchParams }: IdProps) {
   const jobPost = await SingleJobPost(searchParams.id);
 
-   const jobPosts = Array.isArray(jobPost) ? jobPost : [jobPost];
-   
+  const jobPosts = Array.isArray(jobPost) ? jobPost : [jobPost];
+
   return jobPosts.map((job) => (
     <div className="m-[32px] flex">
-      <div className="flex-col  max-w-[816px] block items-start space-y-[55px] my-[46px] mr-[62px]">
+      <div className="flex-col  max-w-[816px] min-w-[816px] block items-start space-y-[55px] my-[46px] mr-[62px]">
         {/* description */}
         <div className="w-full space-y-[16px]">
           <h5
@@ -72,7 +71,7 @@ export default async function Id({ searchParams }: IdProps) {
               .map((res, index) => (
                 <IdealCandidate key={index} text={res.trim()} /> // Optional: trim extra whitespace and add a key prop
               ))}
-           
+
             {/* {ideal_candidate?.traits.map((trait) => (
               <IdealCandidate text={trait} />
             ))} */}
