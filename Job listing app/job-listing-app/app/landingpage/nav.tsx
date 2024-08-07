@@ -1,8 +1,10 @@
 import React from "react";
 import { epilogue, poppins } from "@/app/ui/fonts";
 import navProps from "../types/nav";
+import Logout from '@/components/Logout'
 
-export default function Nav({ resultNo }: navProps) {
+export default async function Nav({ resultNo }: navProps) {
+  
   return (
     <div className="flex-col pr-20  mr-20  ">
       <h5
@@ -33,6 +35,7 @@ export default function Nav({ resultNo }: navProps) {
             Most relevant
           </p>
         </div>
+       <Logout/>
       </div>
     </div>
   );
