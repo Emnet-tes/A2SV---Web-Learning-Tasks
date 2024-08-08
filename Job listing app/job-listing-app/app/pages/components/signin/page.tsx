@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { useUser } from "../../../../contexts/UserContext";
 import Link from "next/link";
+import Cookie from 'js-cookie';
 const SignIn = () => {
   const {
     register,
@@ -28,6 +29,7 @@ const SignIn = () => {
         localStorage.setItem("accessToken", result.token);
         alert("log in");
         setIsLoggedIn(true);
+        Cookie.set('currentUser',result.token,{expires:30/1440,path:'/'});
         router.push("./pages/components/Home");
       } else {
         console.error("Sign-in failed:", response.statusText);

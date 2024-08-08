@@ -1,7 +1,9 @@
+
 import type { Metadata } from "next";
 import { Epilogue, Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import { UserProvider } from "../contexts/UserContext";
+import { UserProvider } from "@/contexts/UserContext";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 export const poppins = Poppins({ subsets: ["latin"], weight: ["900"] });
@@ -24,7 +26,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <UserProvider>
+          <SessionProvider>
           {children}
+          </SessionProvider>
           </UserProvider>
       </body>
     </html>

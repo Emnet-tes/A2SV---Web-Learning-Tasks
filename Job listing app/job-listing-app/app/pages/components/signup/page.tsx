@@ -1,11 +1,13 @@
-'use client'
-import { poppins } from "@/app/layout";
+'use client';
+
+import { poppins } from "@/app/ui/fonts";
 import { epilogue, inter } from "@/app/ui/fonts";
 import { useUser } from "@/contexts/UserContext";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import {cookies} from 'next/headers';
 
 interface FormData{
   name:string;
@@ -13,7 +15,7 @@ interface FormData{
   password:string;
   confirmPassword:string;
 }
-const SignUp:React.FC = () => {
+const SignUp : React.FC= () => {
   const {register,handleSubmit,formState:{errors}} = useForm<FormData>();
   const router = useRouter();
   const {setUser} = useUser();
@@ -31,24 +33,33 @@ const SignUp:React.FC = () => {
       },
       body:JSON.stringify(data),
     });
+   
     if(response.ok){
-      const result = await response.json();
+      // const result = await response.json();
       alert('signup successfull');
+      
+      
+
       console.log(data.email)
       setUser({ email: data.email }); // Update user context
       router.push("/pages/components/Verify");
+    }else{
+      const error = await response.json();
+      alert(error.message || 'signup failed');
     }
 
   }catch(error){
     console.error('error during sign-up:',error);
+    alert("an error occured during signup");
   }
 
 };
 
   return (
     <div className="flex flex-col items-center min-h-screen my-6">
-      <div className="flex flex-col gap-4 w-40p">
-        <p className="text-[#25324B] font-black text-[32px] font-poppins leading-[38.4px] text-center">
+      <div className="flex flex-col gap-4 min-w-[400px]">
+        <p className={`${poppins.className} text-[#25324B]  text-[32px]  leading-[38.4px] text-center`}
+        style={{fontWeight:600}}>
           Sign Up Today!
         </p>
         <div className="border rounded-sm flex items-center justify-center">
@@ -85,7 +96,7 @@ const SignUp:React.FC = () => {
         </div>
         <div className="flex items-center gap-1">
           <hr className="flex-grow border-t border-gray-300" />
-          <p className="font-epilogue text-base text-center font-normal text-[#8f9197]">
+          <p className={`${poppins.className}  text-base text-center font-normal text-[#8f9197]`}>
             Or Sign Up with Email
           </p>
           <hr className="flex-grow border-t border-gray-300" />
