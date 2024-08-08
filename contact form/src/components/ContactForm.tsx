@@ -35,6 +35,7 @@ function ContactForm() {
 
   return (
     <div className="h-14 bg-[url('../images/background.jpg')] bg-no-repeat bg-cover bg-center  flex flex-row min-h-screen justify-center items-center">
+      
       <form
         className="bg-white bg-opacity-20 backdrop-blur-md rounded-lg shadow-lg max-w-sm w-full  mx-auto border border-grey-500 rounded p-6 "
         noValidate

@@ -3,4 +3,4 @@
 
 // const handler = NextAuth(options)
 // export {handler as GET, handler as POST}
-export {GET,POST} from '@/app/auth'
+export {GET,POST} from '../../../../auth';

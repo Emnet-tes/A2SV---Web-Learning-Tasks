@@ -1,7 +1,7 @@
 import Link from "next/link";
 
+import JobListCard from "@/app/pages/components/jobListCard";
 import { getJobPostings } from "@/app/types";
-import JobListCard from "@/components/jobListCard";
 import Nav from "./nav";
 
 async function JobPostings() {

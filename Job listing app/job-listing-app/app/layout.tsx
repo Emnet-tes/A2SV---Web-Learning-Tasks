@@ -1,7 +1,7 @@
-
 import type { Metadata } from "next";
-import { Inter, Poppins, Epilogue } from "next/font/google";
+import { Epilogue, Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import { UserProvider } from "../contexts/UserContext";
 
 const inter = Inter({ subsets: ["latin"] });
 export const poppins = Poppins({ subsets: ["latin"], weight: ["900"] });
@@ -9,8 +9,6 @@ export const epilogue = Epilogue({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
 });
-import Providers from "@/components/Providers";
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,19 +16,18 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children
-}: {
+  children,
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
       <body className={inter.className}>
-
-
-      <Providers>
-        {children}
-      </Providers>
+        <UserProvider>
+          {children}
+          </UserProvider>
       </body>
     </html>
   );
 }
+

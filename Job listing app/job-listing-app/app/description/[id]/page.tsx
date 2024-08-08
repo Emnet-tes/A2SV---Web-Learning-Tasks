@@ -1,11 +1,11 @@
+import { AboutCard } from "@/app/pages/components/aboutCard";
+import { CategoriesCard } from "@/app/pages/components/categoriesCard";
+import { IdealCandidate } from "@/app/pages/components/IdealCandidate";
+import { RequiredSkillsCard } from "@/app/pages/components/RequiredSkillsCard";
+import { ResponsibilitesCard } from "@/app/pages/components/ResponsibilitesCard";
+import { WhenAndWhere } from "@/app/pages/components/WhenAndWhere";
 import { formatDate, SingleJobPost } from "@/app/types";
 import { epilogue, poppins } from "@/app/ui/fonts";
-import { AboutCard } from "@/components/aboutCard";
-import { CategoriesCard } from "@/components/categoriesCard";
-import { IdealCandidate } from "@/components/IdealCandidate";
-import { RequiredSkillsCard } from "@/components/RequiredSkillsCard";
-import { ResponsibilitesCard } from "@/components/ResponsibilitesCard";
-import { WhenAndWhere } from "@/components/WhenAndWhere";
 
 interface IdProps {
   searchParams: { [key: string]: string };

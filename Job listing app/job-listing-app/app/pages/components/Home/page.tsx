@@ -2,9 +2,9 @@
 import React from 'react'
 import JobPostings from './JobPostings'
 
-function Page  ()  {
+function Home  ()  {
   return (
     <JobPostings/>
   )
 }
-export default Page;
+export default Home;

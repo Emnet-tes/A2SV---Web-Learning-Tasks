@@ -1,15 +1,15 @@
-'use server'
-import {signIn,signOut} from '@/app/auth'
+// 'use server'
+// import { signIn, signOut } from '@/auth';
 
-export async function doLogin(event:React.FormEvent<HTMLFormElement>){
+// export async function doLogin(event:React.FormEvent<HTMLFormElement>){
     
-  event.preventDefault();
-const formData = new FormData(event.currentTarget);
+//   event.preventDefault();
+// const formData = new FormData(event.currentTarget);
 
 
-    await signIn('google',{redirectTo:"/landingpage"});
+//     await signIn('google',{redirectTo:"/landingpage"});
 
-}
-export async function doLogout(){
-    await signOut({redirectTo:""})
-}
+// }
+// export async function doLogout(){
+//     await signOut({redirectTo:""})
+// }

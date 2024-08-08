@@ -1,16 +1,12 @@
-import { LoginForm } from "@/components/LogInForm";
-import { Onboarding } from "@/components/onboarding";
-import { auth } from "./auth";
-import { redirect } from "next/navigation";
+"use client";
+import { useUser } from "../contexts/UserContext"; // Adjust the path if necessary
+import Home from "./pages/components/Home/page";
+import SignIn from "./pages/components/signin/page";
 
 
-export default async function Home() {
-  const session = await auth();
-  if (!session?.user) {return <LoginForm/>}
-  else{
-    redirect("/landingpage")
-  }
 
- 
-
+export default function Page() {
+  const { isLoggedIn } = useUser();
+  console.log(useUser());
+  return <div>{isLoggedIn ? <Home /> : <SignIn />}</div>;
 }
