@@ -6,10 +6,13 @@ The Job Listing App is a web application designed to display job postings and th
 
 ## Features
 
-- User Authentication: Users are required to sign up or sign in to access job listings. 
-    ![Required Fields](public/images/signup required.png)
-    ![Email Validation](public/images/emial validation.png)
-    ![Sign up success](public/images/signup success.png)
+-  User Authentication: Users are required to sign up or sign in to access job listings. 
+    ![Required Fields](public/images/signuprequired.png)
+
+    ![Email Validation](public/images/emailvalidation.png)
+
+    ![Sign up success](public/images/signupsuccess.png)
+
     ![verfy email](public/images/verify.png)
     Authenticated users are redirected to the Home page, while unauthenticated users are directed to the Sign-Up page
 
