@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useUser } from "../../../../contexts/UserContext";
 import Link from "next/link";
 import Cookie from 'js-cookie';
+import { epilogue, poppins } from '@/app/ui/fonts'
 const SignIn = () => {
   const {
     register,
@@ -41,9 +42,11 @@ const SignIn = () => {
   };
 
   return (
-    <div className="flex flex-col items-end mr-60">
-      <div className="flex flex-col gap-4 w-40p my-32">
-        <p className="text-center text-[#202430] text-[32px] font-black">
+    <div className="flex flex-col items-end mr-40">
+      <div className="flex flex-col  min-w-[400px] my-32 space-y-[24px]">
+        <p className={`${poppins.className} text-center text-[#202430] `}
+        style={{fontWeight:900,fontSize:32}}
+        >
           Welcome Back,
         </p>
         <div className="flex">
@@ -55,7 +58,8 @@ const SignIn = () => {
           <div className="flex flex-col">
             <label
               htmlFor="email"
-              className="text-[#515B6F] font-semibold text-base font-epilogue leading-[25.6px]"
+              className={`${epilogue.className}text-[#515B6F] text-base  leading-[25.6px]`}
+              style={{fontWeight:600}}
             >
               Email Address
             </label>
@@ -70,7 +74,8 @@ const SignIn = () => {
           <div className="flex flex-col">
             <label
               htmlFor="password"
-              className="text-[#515B6F] font-semibold text-base font-epilogue leading-[25.6px]"
+              className={`${epilogue.className} text-[#515B6F]text-base leading-[25.6px]`}
+              style={{fontWeight:600}}
             >
               Password
             </label>
@@ -84,7 +89,7 @@ const SignIn = () => {
           </div>
           <button
             type="submit"
-            className="border rounded-3xl border-[#2d298e] bg-[#2d298e] px-3 py-4 text-white font-bold text-base"
+            className="border rounded-full border-[#2d298e] bg-[#2d298e] px-3 py-[12px] text-white font-bold text-base"
           >
             Login
           </button>

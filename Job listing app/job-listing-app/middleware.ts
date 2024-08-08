@@ -2,7 +2,7 @@ import type { NextRequest } from 'next/server'
  
 export function middleware(request: NextRequest) {
   const currentUser = request.cookies.get('currentUser')?.value
-  console.log(currentUser)
+//   console.log(currentUser)
  
   if (!currentUser && request.nextUrl.pathname.startsWith('/pages/components/Home')) {
     return Response.redirect(new URL('/pages/components/signup', request.url))

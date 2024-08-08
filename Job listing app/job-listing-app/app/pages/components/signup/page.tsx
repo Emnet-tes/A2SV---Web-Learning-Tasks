@@ -56,13 +56,15 @@ const SignUp : React.FC= () => {
 };
 
   return (
-    <div className="flex flex-col items-center min-h-screen my-6">
-      <div className="flex flex-col gap-4 min-w-[400px]">
-        <p className={`${poppins.className} text-[#25324B]  text-[32px]  leading-[38.4px] text-center`}
-        style={{fontWeight:600}}>
+    <div className="flex flex-col items-center min-h-screen my-[24px]">
+      <div className="flex flex-col gap-4 max-w-[400px]">
+        <p
+          className={`${poppins.className} text-[#25324B]  text-[32px]  leading-[38.4px] text-center`}
+          style={{ fontWeight: 600 }}
+        >
           Sign Up Today!
         </p>
-        <div className="border rounded-sm flex items-center justify-center">
+        <div className="border rounded-sm flex items-center justify-center space-x-2">
           <svg
             width="21"
             height="20"
@@ -89,14 +91,17 @@ const SignUp : React.FC= () => {
           </svg>
           <button
             onClick={() => signIn("google")}
-            className="text-center py-4 text-[#4640DE]"
+            className={`${epilogue.className} text-center py-4 text-[#4640DE]`}
+            style={{ fontWeight: 700 }}
           >
             Sign Up with Google
           </button>
         </div>
         <div className="flex items-center gap-1">
           <hr className="flex-grow border-t border-gray-300" />
-          <p className={`${poppins.className}  text-base text-center font-normal text-[#8f9197]`}>
+          <p
+            className={`${poppins.className}  text-base text-center font-normal text-[#8f9197]`}
+          >
             Or Sign Up with Email
           </p>
           <hr className="flex-grow border-t border-gray-300" />
@@ -106,7 +111,8 @@ const SignUp : React.FC= () => {
           <div className="flex flex-col">
             <label
               htmlFor="name"
-              className="text-[#515B6F] font-semibold text-base font-epilogue leading-[25.6px]"
+              className={`${epilogue.className} text-[#515B6F]  text-base  leading-[25.6px]`}
+              style={{ fontWeight: 600 }}
             >
               Full Name
             </label>
@@ -118,10 +124,11 @@ const SignUp : React.FC= () => {
               {...register("name", { required: "Full Name is required" })}
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col space-y-[4xp]">
             <label
               htmlFor="email"
-              className="text-[#515B6F] font-semibold text-base font-epilogue leading-[25.6px]"
+              className={`${epilogue.className} text-[#515B6F] text-base  leading-[25.6px]`}
+              style={{ fontWeight: 600 }}
             >
               Email Address
             </label>
@@ -129,14 +136,15 @@ const SignUp : React.FC= () => {
               type="email"
               id="email"
               placeholder="Enter email address"
-              className="border rounded-sm px-3 py-4"
+              className="border rounded-lg px-3 py-4"
               {...register("email", { required: "Email is required" })}
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col space-y-[4xp]">
             <label
               htmlFor="password"
-              className="text-[#515B6F] font-semibold text-base font-epilogue leading-[25.6px]"
+              className={`${epilogue.className} text-[#515B6F] text-base  leading-[25.6px]`}
+              style={{ fontWeight: 600 }}
             >
               Password
             </label>
@@ -144,14 +152,15 @@ const SignUp : React.FC= () => {
               type="password"
               id="password"
               placeholder="Enter Password"
-              className="border rounded-sm px-3 py-4"
+              className="border rounded-lg px-3 py-4"
               {...register("password", { required: "Password is required" })}
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col space-y-[4xp]">
             <label
               htmlFor="confirm-password"
-              className="text-[#515B6F] font-semibold text-base font-epilogue leading-[25.6px]"
+              className={`${epilogue.className} text-[#515B6F] text-base  leading-[25.6px]`}
+              style={{ fontWeight: 600 }}
             >
               Confirm Password
             </label>
@@ -159,7 +168,7 @@ const SignUp : React.FC= () => {
               type="password"
               id="confirm-password"
               placeholder="Confirm Password"
-              className="border rounded-sm px-3 py-4"
+              className="border rounded-lg px-3 py-4"
               {...register("confirmPassword", {
                 required: "Confirm Password is required",
               })}
@@ -167,25 +176,41 @@ const SignUp : React.FC= () => {
           </div>
           <button
             type="submit"
-            className="border rounded-3xl border-[#2d298e] bg-[#2d298e] px-3 py-4 text-white font-bold text-base"
+            className={`${epilogue.className}border rounded-3xl border-[#2d298e] bg-[#2d298e] px-3 py-4 text-white font-bold text-base`}
+            style={{ fontWeight: 600 }}
           >
             Continue
           </button>
         </form>
-        <p className="text-center text-[#8f9197] font-normal text-base">
+        <p
+          className={`${epilogue.className} text-center text-[#8f9197]  text-base`}
+          style={{ fontWeight: 400 }}
+        >
           Already have an account?{" "}
-          <a href="/" className="text-[#2d298e] text-base font-semibold">
+          <a
+            href="/"
+            className={`${epilogue.className}text-[#2d298e] text-base `}
+            style={{ fontWeight: 600 }}
+          >
             Login
           </a>
         </p>
-        <p className="font-normal text-[#8f9197] text-[14px]">
+        <p className={`${epilogue.className} font-normal text-[#8f9197] text-[14px]`}>
           By clicking 'Continue', you acknowledge that you have read and
           accepted our{" "}
-          <a href="#" className="text-[#2d298e] text-[14px] font-semibold">
+          <a
+            href="#"
+            className={`${epilogue.className}text-[#2d298e] text-[14px]`}
+            style={{ fontWeight: 600 }}
+          >
             Terms of Service
           </a>{" "}
           and{" "}
-          <a href="#" className="text-[#2d298e] text-[14px] font-semibold">
+          <a
+            href="#"
+            className={`${epilogue.className}text-[#2d298e] text-[14px]`}
+            style={{ fontWeight: 600 }}
+          >
             Privacy Policy
           </a>
           .
