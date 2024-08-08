@@ -8,9 +8,9 @@ export function middleware(request: NextRequest) {
     return Response.redirect(new URL('/pages/components/signup', request.url))
   }
  
-//   if (!currentUser && !request.nextUrl.pathname.startsWith('/pages/components/signup' ) ) {
-//     return Response.redirect(new URL('/pages/components/signin', request.url))
-//   }
+  if (!currentUser && !request.nextUrl.pathname.startsWith('/pages/components/signup' ) ) {
+    return Response.redirect(new URL('/pages/components/signin', request.url))
+  }
 
 }
  

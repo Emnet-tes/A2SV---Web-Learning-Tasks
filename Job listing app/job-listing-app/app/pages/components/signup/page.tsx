@@ -107,7 +107,11 @@ const SignUp : React.FC= () => {
           <hr className="flex-grow border-t border-gray-300" />
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          noValidate
+          className="flex flex-col gap-4"
+        >
           <div className="flex flex-col">
             <label
               htmlFor="name"
@@ -123,6 +127,7 @@ const SignUp : React.FC= () => {
               className="border rounded-sm px-3 py-4"
               {...register("name", { required: "Full Name is required" })}
             />
+            <p className="text-red-500 text-xs mt-1">{errors.name?.message}</p>
           </div>
           <div className="flex flex-col space-y-[4xp]">
             <label
@@ -137,8 +142,15 @@ const SignUp : React.FC= () => {
               id="email"
               placeholder="Enter email address"
               className="border rounded-lg px-3 py-4"
-              {...register("email", { required: "Email is required" })}
+              {...register("email", {
+                required: { value: true, message: "email is required" },
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                  message: "Invalid email format",
+                },
+              })}
             />
+            <p className="text-red-500 text-xs mt-1">{errors.email?.message}</p>
           </div>
           <div className="flex flex-col space-y-[4xp]">
             <label
@@ -155,6 +167,9 @@ const SignUp : React.FC= () => {
               className="border rounded-lg px-3 py-4"
               {...register("password", { required: "Password is required" })}
             />
+            <p className="text-red-500 text-xs mt-1">
+              {errors.password?.message}
+            </p>
           </div>
           <div className="flex flex-col space-y-[4xp]">
             <label
@@ -173,6 +188,9 @@ const SignUp : React.FC= () => {
                 required: "Confirm Password is required",
               })}
             />
+            <p className="text-red-500 text-xs mt-1">
+              {errors.confirmPassword?.message}
+            </p>
           </div>
           <button
             type="submit"
@@ -189,13 +207,15 @@ const SignUp : React.FC= () => {
           Already have an account?{" "}
           <a
             href="/"
-            className={`${epilogue.className}text-[#2d298e] text-base `}
+            className={`${epilogue.className} text-[#2d298e] text-base `}
             style={{ fontWeight: 600 }}
           >
             Login
           </a>
         </p>
-        <p className={`${epilogue.className} font-normal text-[#8f9197] text-[14px]`}>
+        <p
+          className={`${epilogue.className} font-normal text-[#8f9197] text-[14px]`}
+        >
           By clicking 'Continue', you acknowledge that you have read and
           accepted our{" "}
           <a
