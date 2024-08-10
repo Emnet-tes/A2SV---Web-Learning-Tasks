@@ -1,9 +1,9 @@
-import { AboutCard } from "@/app/pages/components/aboutCard";
-import { CategoriesCard } from "@/app/pages/components/categoriesCard";
-import { IdealCandidate } from "@/app/pages/components/IdealCandidate";
-import { RequiredSkillsCard } from "@/app/pages/components/RequiredSkillsCard";
-import { ResponsibilitesCard } from "@/app/pages/components/ResponsibilitesCard";
-import { WhenAndWhere } from "@/app/pages/components/WhenAndWhere";
+import { AboutCard } from "@/app/components/aboutCard";
+import { CategoriesCard } from "@/app/components/categoriesCard";
+import { IdealCandidate } from "@/app/components/IdealCandidate";
+import { RequiredSkillsCard } from "@/app/components/RequiredSkillsCard";
+import { ResponsibilitesCard } from "@/app/components/ResponsibilitesCard";
+import { WhenAndWhere } from "@/app/components/WhenAndWhere";
 import { formatDate, SingleJobPost } from "@/app/types";
 import { epilogue, poppins } from "@/app/ui/fonts";
 

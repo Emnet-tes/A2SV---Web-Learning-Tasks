@@ -1,9 +1,7 @@
 "use client";
 import { useUser } from "../contexts/UserContext"; // Adjust the path if necessary
-import Home from "./pages/components/Home/page";
-import SignIn from "./pages/components/signin/page";
-
-
+import Home from "./Home/page";
+import SignIn from "./signin/page";
 
 export default function Page() {
   const { isLoggedIn } = useUser();

@@ -1,16 +1,18 @@
-import type { NextRequest } from 'next/server'
+import { NextResponse, type NextRequest } from 'next/server';
  
 export function middleware(request: NextRequest) {
   const currentUser = request.cookies.get('currentUser')?.value
-//   console.log(currentUser)
+  
+  
  
-  if (!currentUser && request.nextUrl.pathname.startsWith('/pages/components/Home')) {
-    return Response.redirect(new URL('/pages/components/signup', request.url))
+  if (!currentUser && request.nextUrl.pathname.startsWith('/Home')) {
+    return Response.redirect(new URL('/signup', request.url))
   }
  
-  if (!currentUser && !request.nextUrl.pathname.startsWith('/pages/components/signup' ) ) {
-    return Response.redirect(new URL('/pages/components/signin', request.url))
-  }
+  // if (currentUser && !request.nextUrl.pathname.startsWith('/pages/components/Home' ) ) {
+  //   return Response.redirect(new URL('/pages/components/Home', request.url))
+  // }
+   return NextResponse.next();
 
 }
  

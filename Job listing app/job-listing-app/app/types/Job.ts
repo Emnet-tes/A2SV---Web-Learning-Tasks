@@ -4,6 +4,13 @@ export default interface JobPostingsProps{
     data:JobPost[]
 }
 
+export  interface BookmarkingsProps{
+    success:boolean,
+    message:string,
+    data:Bookmark[]
+}
+
+
  export interface JobPost {
   id: string;
   title: string;
@@ -45,8 +52,20 @@ export interface JobListProps{
   orgName: string;
   description: string;
   logoUrl: string;
- location:string[]
- opType:string
+ location:string[];
+ opType:string;
+ id:string
+//  isBookmarked:boolean
+}
+export interface Bookmark{
+   eventID: string;          
+  title: string;            
+  opType:string; 
+  orgName: string;           
+  datePosted: string;       
+  dateBookmarked?: string;   
+  logoUrl?: string;          
+  location: string; 
 }
 
 
