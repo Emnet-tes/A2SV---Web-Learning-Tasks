@@ -1,8 +1,6 @@
-import Image from "next/image";
-import React from "react";
-import { epilogue } from "@/app/ui/fonts";
-import BookmarkButton from "./bookmarkButton";
 import { JobListProps } from "@/app/types/Job";
+import { epilogue } from "@/app/ui/fonts";
+import Image from "next/image";
 
 function JobListCard({
   title,
@@ -11,9 +9,8 @@ function JobListCard({
   logoUrl,
   location,
   opType,
- id
+  id,
 }: JobListProps) {
-  
   return (
     <div className="relative flex w-full max-w-[56rem]  my-5 p-0">
       <div className="relative pt-4 overflow-hidden bg-transparent rounded-xl mx-5">
@@ -91,4 +88,3 @@ function JobListCard({
 }
 
 export default JobListCard;
-

@@ -1,7 +1,7 @@
 
 import React from 'react'
-import JobPostings from './JobPostings'
-import Link from 'next/link';
+import JobPostings from '../components/JobPostings';
+
 
 function Home  ()  {
  

@@ -50,7 +50,7 @@ export async function deleteBookmark(_id:string){
     if(!res.ok){
      throw new Error("faild to add data");
   } else{
-    alert('job delted');
+    alert('Bookmark deleted successfully!');
   }
 
 }
