@@ -29,16 +29,17 @@ const SignIn = () => {
 
         localStorage.setItem("accessToken", result.data.accessToken);
 
-        alert("log in");
+        alert("Logged in");
         setIsLoggedIn(true);
         Cookie.set("currentUser", result.data.accessToken, {
           expires: 240 / 1440,
           path: "/",
         });
+        console.log(result.data.accessToken);
         router.push("/Home");
       } else {
         console.error("Sign-in failed:", response.statusText);
-        alert("not logged in");
+        alert("Not Logged in");
       }
     } catch (error) {
       console.error("Error during sign-in:", error);

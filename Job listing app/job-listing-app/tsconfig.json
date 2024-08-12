@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,10 +22,35 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     },
-    "types":["jest","node"]
+    "types": [
+      "jest",
+      "node"
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/types/JobListingProps", "app/api/auth/[...nextauth]/options.ts", "app/api/auth/[...nextauth]/route.js"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/types/JobListingProps",
+    "app/api/auth/[...nextauth]/options.ts",
+    "app/api/auth/[...nextauth]/route.js",
+    "cypress.config.ts"
+  ],
+
+  "exclude": [
+    "node_modules"
+  ]
+  //  "exclude": [
+  //  "**/*.spec.ts"
+  // ]
+  // "exclude": [ "./cypress.config.ts",
+  // //other exclusions that may help https://github.com/cypress-io/cypress/issues/22059#issuecomment-1428298264
+  // "node_modules",
+  // "cypress",
+  // "**/*.cy.tsx"]
 }

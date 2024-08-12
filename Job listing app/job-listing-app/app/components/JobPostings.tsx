@@ -11,25 +11,30 @@ import BookmarkButton from "../components/BookmarkButton";
 function JobPostings() {
   const [jobPostings, setJobPostings] = useState<JobPost[]>([]);
   const [loading, setLoading] = useState(true); // To handle loading state
-
+  
   useEffect(() => {
     const fetchJobs = async () => {
-      const accessToken = localStorage.getItem("accessToken");
-
-      const res = await fetch(
-        "https://akil-backend.onrender.com/opportunities/search",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
-          },
+      try {
+        const accessToken = localStorage.getItem("accessToken");
+        const res = await fetch(
+          "https://akil-backend.onrender.com/opportunities/search",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch job postings.");
         }
-      );
-
-      const jobPostings: JobPostingsProps = await res.json();
-      setJobPostings(jobPostings.data);
-      setLoading(false);
+        const jobPostings: JobPostingsProps = await res.json();
+        setJobPostings(jobPostings.data);
+      } finally {
+        setLoading(false);
+      }
+      
     };
 
     fetchJobs();
@@ -38,19 +43,23 @@ function JobPostings() {
   return (
     <>
       <Navbar />
-      <div className="mx-20 max-w-[66rem] pt-10 space-y-10">
+      <div className="mx-20 max-w-[66rem] pt-10 space-y-10 ">
         <Title resultNo={jobPostings.length} title=" Opportunities" />
         {loading ? (
-          <p>Loading...</p> // Optionally, you can have a loading state
+          <p data-testid={`Loading`}>Loading...</p> // Optionally, you can have a loading state
         ) : jobPostings.length > 0 ? (
-          jobPostings.map((job) => (
+          jobPostings.map((job, index) => (
             <div
+              data-testid={`joblist-card${index}`}
               key={job.id}
-              className="relative flex max-w-[66rem] w-full rounded-xl bg-clip-border text-gray-700 shadow"
+              className="relative flex max-w-[66rem] w-full rounded-xl bg-clip-border text-gray-700 shadow "
             >
-              <div className="absolute top-3 right-3 z-10">
+              <button
+                className="absolute top-3 right-3 z-10 "
+                data-testid={`bookmark-button${index}`}
+              >
                 <BookmarkButton id={job.id} marked={job.isBookmarked} />
-              </div>
+              </button>
 
               <Link
                 href={{
@@ -59,6 +68,7 @@ function JobPostings() {
                     id: job.id,
                   },
                 }}
+                className="job-card"
               >
                 <JobListCard
                   title={job.title}

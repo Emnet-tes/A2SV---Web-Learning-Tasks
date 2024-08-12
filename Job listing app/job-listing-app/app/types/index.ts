@@ -20,7 +20,7 @@ export async function addBookmark(_id: string) {
       body: null // Explicitly send a null body to ensure no payload is sent
     });
 
-    console.log(res); // Log the full response for debugging
+    console.log(_id); // Log the full response for debugging
 
     if (!res.ok) {
       const errorData = await res.json(); // Parse the error response

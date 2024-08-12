@@ -6,6 +6,7 @@ import BookmarkCard from "../components/BookmarkCard";
 import { Navbar } from "../components/Navbar";
 import Title from "../components/Title";
 import { Bookmark, BookmarkingsProps } from "../types/Job";
+
 const Bookmarks: React.FC = () => {
   const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
 
@@ -38,14 +39,15 @@ const Bookmarks: React.FC = () => {
 
     fetchBookmarks();
   }, []);
-  console.log(bookmarks);
+
+
   return (
     <div>
       <Navbar />
       <div className="mx-20 max-w-[66rem] pt-10  space-y-10">
         <Title resultNo={bookmarks.length} title="Bookmarks" />
         {bookmarks.map((bookmark) => (
-          <div className="relative flex max-w-[66rem]   rounded-xl bg-clip-border text-gray-700 shadow my-[72px] mx-[124px]">
+          <div className="relative flex max-w-[66rem]   rounded-xl bg-clip-border text-gray-700 shadow my-[72px] mx-[124px] bookmark-card">
             <Link
               href={{
                 pathname: `/description/${bookmark.eventID}`,

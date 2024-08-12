@@ -3,6 +3,10 @@ import React from 'react'
 import Link from 'next/link';
 import Cookie from 'js-cookie';
 export const Navbar = () => {
+  const isHomePage =
+    typeof window !== "undefined" && window.location.pathname === "/Home";
+    const isbookmarkpage =
+      typeof window !== "undefined" && window.location.pathname === "/bookmarks";
   return (
     <div className="flex items-center justify-end bg-gray-100 py-3 px-10 space-x-5">
       <Link
@@ -10,7 +14,7 @@ export const Navbar = () => {
           pathname: `/Home`,
         }}
         className={`${
-          window.location.pathname === "/Home"
+     isHomePage
             ? "text-[#2d298e]"
             : "text-gray-500 hover:text-[#2d298e]"
         } text-[14px] font-semibold`}
@@ -22,7 +26,7 @@ export const Navbar = () => {
           pathname: `/bookmarks`,
         }}
         className={`${
-          window.location.pathname === "/bookmarks"
+         isbookmarkpage
             ? "text-[#2d298e]"
             : "text-gray-500 hover:text-[#2d298e]"
         } text-[14px] font-semibold`}
