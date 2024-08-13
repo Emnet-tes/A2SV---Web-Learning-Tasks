@@ -1,5 +1,5 @@
 # Salire
-![Salire Logo](public/images/salire.png)
+
 
 ## Overview
 
@@ -109,9 +109,9 @@ npm start
     Authenticated users are redirected to the Home page, while unauthenticated users are directed to the Sign-Up page
 -loading page
      ![Loading](public/images/loading.png)
-- display job postings from an json data
+- display job postings 
     ![Job Postings](public/images/jobs.png)
-    ![detaild information](public/images/description8.png)
+    ![detaild information](public/images/description2.png)
 - bookmark jobs
     ![bookmarking](public/images/bookmark.png)
     ![bookmarked](public/images/bookmarked.png)
