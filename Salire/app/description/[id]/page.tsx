@@ -1,6 +1,7 @@
 import { AboutCard } from "@/app/components/aboutCard";
 import { CategoriesCard } from "@/app/components/categoriesCard";
 import { IdealCandidate } from "@/app/components/IdealCandidate";
+import { Navbar } from "@/app/components/Navbar";
 import { RequiredSkillsCard } from "@/app/components/RequiredSkillsCard";
 import { ResponsibilitesCard } from "@/app/components/ResponsibilitesCard";
 import { WhenAndWhere } from "@/app/components/WhenAndWhere";
@@ -16,6 +17,8 @@ export default async function Id({ searchParams }: IdProps) {
   const jobPosts = Array.isArray(jobPost) ? jobPost : [jobPost];
 
   return jobPosts.map((job) => (
+    <>
+    <Navbar/>
     <div className="m-[32px] flex">
       <div className="flex-col  max-w-[816px] min-w-[816px] block items-start space-y-[55px] my-[46px] mr-[62px]">
         {/* description */}
@@ -144,5 +147,7 @@ export default async function Id({ searchParams }: IdProps) {
         </div>
       </div>
     </div>
+    </>
+    
   ));
 }
