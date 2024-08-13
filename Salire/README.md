@@ -111,7 +111,6 @@ npm start
      ![Loading](public/images/loading.png)
 - display job postings 
     ![Job Postings](public/images/jobs.png)
-    ![detaild information](public/images/description2.png)
 - bookmark jobs
     ![bookmarking](public/images/bookmark.png)
     ![bookmarked](public/images/bookmarked.png)
