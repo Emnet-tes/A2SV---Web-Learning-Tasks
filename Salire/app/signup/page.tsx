@@ -32,15 +32,15 @@ const SignUp: React.FC = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({...data, role: "user"}),
+        body: JSON.stringify({ ...data, role: "user" }),
       });
 
       if (response.ok) {
-        // const result = await response.json();
         alert("signup successfull");
 
         console.log(data.email);
-        setUser({ email: data.email }); // Update user context
+        // setUser({ email: data.email }); // Update user context
+        localStorage.setItem("currentEmail", data.email);
         router.push("/Verify");
       } else {
         const error = await response.json();

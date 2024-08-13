@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useUser } from "@/contexts/UserContext";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -11,8 +11,9 @@ const Verify : React .FC= () => {
     formState: { errors },
   } = useForm();
   const { user, isLoggedIn, setIsLoggedIn } = useUser();
-
-  const curr_email = user?.email;
+  
+  // const curr_email = user?.email;
+  const curr_email = localStorage.getItem('currentEmail');
   const [otpValues, setOtpValues] = useState<string[]>(["", "", "", ""]);
   const router = useRouter();
   const handleChange = (index: number, value: string) => {
@@ -95,6 +96,7 @@ const Verify : React .FC= () => {
           <p className="font-epilogue text-sm font-normal text-[#7C8493] text-center">
             You can request to{" "}
             <a className="font-semibold text-[#2d298e]">Resend Code</a> in{" "}
+
             <span className="block text-[#2d298e] font-semibold">0:30</span>
           </p>
           <button
