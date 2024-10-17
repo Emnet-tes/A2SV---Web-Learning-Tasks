@@ -61,7 +61,7 @@ const SignUp: React.FC = () => {
         >
           Sign Up Today!
         </p>
-        <div className="border rounded-sm flex items-center justify-center space-x-2">
+        {/* <div className="border rounded-sm flex items-center justify-center space-x-2">
           <svg
             width="21"
             height="20"
@@ -93,13 +93,13 @@ const SignUp: React.FC = () => {
           >
             Sign Up with Google
           </button>
-        </div>
+        </div> */}
         <div className="flex items-center gap-1">
           <hr className="flex-grow border-t border-gray-300" />
           <p
             className={`${poppins.className}  text-base text-center font-normal text-[#8f9197]`}
           >
-            Or Sign Up with Email
+            Sign Up with Email
           </p>
           <hr className="flex-grow border-t border-gray-300" />
         </div>
