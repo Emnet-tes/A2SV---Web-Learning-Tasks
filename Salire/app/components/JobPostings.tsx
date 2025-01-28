@@ -1,52 +1,73 @@
 "use client";
 
 import JobListCard from "@/app/components/jobListCard";
-import JobPostingsProps, { JobPost } from "@/app/types/Job";
+import JobPostingsProps from "@/app/types/Job";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Navbar } from "../components/Navbar";
 import Title from "../components/Title";
 import BookmarkButton from "../components/BookmarkButton";
 
-function JobPostings() {
-  const [jobPostings, setJobPostings] = useState<JobPost[]>([]);
-  const [loading, setLoading] = useState(true); // To handle loading state
-  
-  useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const accessToken = localStorage.getItem("accessToken");
-        const res = await fetch(
-          "https://akil-backend.onrender.com/opportunities/search",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
-        if (!res.ok) {
-          throw new Error("Failed to fetch job postings.");
-        }
-        const jobPostings: JobPostingsProps = await res.json();
-        setJobPostings(jobPostings.data);
-      } finally {
-        setLoading(false);
-      }
-      
-    };
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../lib/store";
+import {
+  setOpportunities,
+  setOpportunitiesMessage,
+  setOpportunitiesSuccess,
+} from "../lib/features/jobs/opportunitiesSlice";
 
-    fetchJobs();
-  }, []);
+const JobPostings: React.FC = () => {
+  const dispatch = useDispatch();
+  const {
+    data: jobPostings,
+    success,
+    message,
+  } = useSelector((state: RootState) => state.jobPostings);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (jobPostings.length === 0) {
+      const fetchJobs = async () => {
+        try {
+          const accessToken = localStorage.getItem("accessToken");
+          const res = await fetch(
+            "https://akil-backend.onrender.com/opportunities/search",
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${accessToken}`,
+              },
+            }
+          );
+          if (!res.ok) {
+            throw new Error("Failed to fetch job postings.");
+          }
+          const jobPostings: JobPostingsProps = await res.json();
+          dispatch(setOpportunities(jobPostings.data));
+          dispatch(setOpportunitiesSuccess(success));
+        } catch (error) {
+          dispatch(setOpportunitiesMessage("Failed to fetch job postings."));
+          dispatch(setOpportunitiesSuccess(success));
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      fetchJobs();
+    } else {
+      setLoading(false);
+    }
+  }, [dispatch, jobPostings.length]);
 
   return (
     <>
       <Navbar />
+
       <div className="mx-20 max-w-[66rem] pt-10 space-y-10 ">
         <Title resultNo={jobPostings.length} title=" Opportunities" />
         {loading ? (
-          <p data-testid={`Loading`}>Loading...</p> // Optionally, you can have a loading state
+          <p data-testid={`Loading`}>Loading...</p>
         ) : jobPostings.length > 0 ? (
           jobPostings.map((job, index) => (
             <div
@@ -90,6 +111,6 @@ function JobPostings() {
       </div>
     </>
   );
-}
+};
 
 export default JobPostings;

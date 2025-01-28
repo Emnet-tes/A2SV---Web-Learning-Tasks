@@ -2,18 +2,16 @@
 import { addBookmark, deleteBookmark } from "@/app/types";
 import { useState } from "react";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
-interface Props {
-  id: string;
-  marked: boolean;
-}
+import { bookMarkProps } from "../lib/features/jobs/bookMarkSlice";
 
-function BookmarkButton({ id, marked }: Props) {
+function BookmarkButton({ id, marked }: bookMarkProps) {
   const [bookmark, setBookmark] = useState(marked);
 
   async function toggleBookmark() {
     // to bookmark
     if (!bookmark) {
       const response = await addBookmark(id);
+      
       setBookmark(!bookmark);
     } else {
       // delete

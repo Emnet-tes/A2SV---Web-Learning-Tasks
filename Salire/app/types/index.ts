@@ -1,5 +1,5 @@
 import JobPostingProps from "@/app/types/Job";
-import { epilogue } from "../ui/fonts";
+
 
 export async function addBookmark(_id: string) {
   try {
