@@ -54,7 +54,6 @@ const Verify: React.FC = () => {
         setIsLoggedIn(true);
         router.push("./signin");
       } else {
-        console.log("Verification failed");
       }
     } catch (error) {
       console.error("Error during verification:", error);

@@ -57,7 +57,6 @@ export async function deleteBookmark(_id: string) {
 
 export async function getBookmarks() {
   const accessToken = localStorage.getItem("accessToken");
-  console.log(accessToken);
   const res = await fetch(`https://akil-backend.onrender.com/bookmarks`, {
     method: "GET",
     headers: {
@@ -65,7 +64,6 @@ export async function getBookmarks() {
     },
     body: null,
   });
-  console.log(res);
   if (!res.ok) {
     throw new Error("faild to get data");
   }

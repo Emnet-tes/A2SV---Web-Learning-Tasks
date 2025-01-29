@@ -38,8 +38,6 @@ const SignUp: React.FC = () => {
       if (response.ok) {
         alert("signup successfull");
 
-        console.log(data.email);
-        // setUser({ email: data.email }); // Update user context
         localStorage.setItem("currentEmail", data.email);
         router.push("/Verify");
       } else {
