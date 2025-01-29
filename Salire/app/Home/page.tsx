@@ -1,15 +1,13 @@
-'use client';
-import React from 'react'
-import JobPostings from '../components/JobPostings';
-import { Provider } from 'react-redux';
-import store from '../lib/store';
+// "use client";
+import React from "react";
+import JobPostings from "../components/JobPostings";
 
-function Home  ()  {
- 
+
+function Home() {
   return (
-<Provider store={store}>
-    <JobPostings/>
-   </Provider>
-  )
+  
+      <JobPostings />
+  
+  );
 }
 export default Home;

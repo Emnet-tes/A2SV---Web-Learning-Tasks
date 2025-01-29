@@ -55,7 +55,6 @@ export interface JobListProps{
  location:string[];
  opType:string;
  id:string
-//  isBookmarked:boolean
 }
 export interface Bookmark{
    eventID: string;          

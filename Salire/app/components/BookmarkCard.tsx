@@ -19,7 +19,7 @@ function BookmarkCard({
     return (
       
       <button
-        className={`bg-green-100 hover:bg-green-500 ${epilogue.className} font-semiBold text-[12px] leading-[160%] text-[#56CDAD] text-center text-green-700 hover:text-white py-1 px-4 hover:border-transparent rounded-full`}
+        className={`bg-green-100 hover:bg-green-500 ${epilogue.className} font-semiBold text-[12px] leading-[160%]  text-center text-green-700 hover:text-white py-1 px-4 hover:border-transparent rounded-full`}
         style={{ fontWeight: 600 }}
       >
         {opType}

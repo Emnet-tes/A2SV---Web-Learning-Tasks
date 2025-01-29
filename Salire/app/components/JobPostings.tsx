@@ -24,7 +24,6 @@ const JobPostings: React.FC = () => {
     message,
   } = useSelector((state: RootState) => state.jobPostings);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     if (jobPostings.length === 0) {
       const fetchJobs = async () => {
