@@ -46,7 +46,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between mx-10 md:mx-40  space-y-10 md:space-y-0 space-x-16">
+    <div className="flex flex-col items-center justify-between mx-4 md:mx-40 space-y-10 md:space-y-0 md:flex-row md:space-x-16">
       {/* Image for larger screens */}
       <div className="hidden md:block">
         <img
@@ -57,10 +57,10 @@ const SignIn = () => {
       </div>
 
       {/* Form Section */}
-      <div className="flex flex-col items-end">
-        <div className="flex flex-col min-w-[300px] md:min-w-[400px] space-y-[24px]">
+      <div className="flex flex-col items-center md:items-end w-full md:w-auto">
+        <div className="flex flex-col min-w-[300px] md:min-w-[400px] space-y-[24px] w-full">
           <p
-            className={`${poppins.className} text-center text-[#202430] `}
+            className={`${poppins.className} text-center text-[#202430]`}
             style={{ fontWeight: 900, fontSize: 32 }}
           >
             Welcome Back,
@@ -72,9 +72,9 @@ const SignIn = () => {
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-4 w-full"
           >
-            <div className="flex flex-col">
+            <div className="flex flex-col w-full">
               <label
                 htmlFor="email"
                 className={`${epilogue.className} text-[#515B6F] text-base leading-[25.6px]`}
@@ -86,11 +86,11 @@ const SignIn = () => {
                 type="email"
                 id="email"
                 placeholder="Enter email address"
-                className="border rounded-md px-3 py-4"
+                className="border rounded-md px-3 py-4 w-full"
                 {...register("email", { required: "Email is required" })}
               />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col w-full">
               <label
                 htmlFor="password"
                 className={`${epilogue.className} text-[#515B6F] text-base leading-[25.6px]`}
@@ -102,18 +102,18 @@ const SignIn = () => {
                 type="password"
                 id="password"
                 placeholder="Enter password"
-                className="border rounded-md px-3 py-4"
+                className="border rounded-md px-3 py-4 w-full"
                 {...register("password", { required: "Password is required" })}
               />
             </div>
             <button
               type="submit"
-              className="border rounded-full border-[#2d298e] bg-[#2d298e] px-3 py-[12px] text-white font-bold text-base"
+              className="border rounded-full border-[#2d298e] bg-[#2d298e] px-3 py-[12px] text-white font-bold text-base w-full"
             >
               Login
             </button>
           </form>
-          <p className="text-[#8f9197] font-normal text-base">
+          <p className="text-[#8f9197] font-normal text-base text-center md:text-left">
             Don't have an account?{" "}
             <Link
               className="text-[#2d298e] text-[14px] font-semibold"
