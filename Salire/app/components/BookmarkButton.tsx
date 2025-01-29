@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import { toggleBookMark } from "../lib/features/jobs/opportunitiesSlice";
 import { removeBookmark } from "../lib/features/jobs/bookMarkSlice";
 
-
 interface bookMarkProps {
   id: string;
   marked: boolean;

@@ -7,7 +7,7 @@ interface Props {
 }
 export const AboutCard = ({ text, value }: Props) => {
   return (
-    <div className="flex items-center  items-start  bg-transparent rounded-xl space-x-[10px]">
+    <div className="flex items-start  bg-transparent rounded-xl space-x-[10px]">
       <Image
         src={`/icons/${text}.png`}
         alt="Posted On"
@@ -22,9 +22,8 @@ export const AboutCard = ({ text, value }: Props) => {
         >
           {text}
         </p>
-        
-      
-             {Array.isArray(value) ? (
+
+        {Array.isArray(value) ? (
           value.map((val, index) => (
             <p
               key={index}
@@ -34,13 +33,14 @@ export const AboutCard = ({ text, value }: Props) => {
               {val}
             </p>
           ))
-        ):<p
-             
-              className={`${epilogue.className} leading-[160%] text-[#25324B] text-left`}
-              style={{ fontWeight: 600, fontSize: 16 }}
-            >
-          {value}
-        </p>}
+        ) : (
+          <p
+            className={`${epilogue.className} leading-[160%] text-[#25324B] text-left`}
+            style={{ fontWeight: 600, fontSize: 16 }}
+          >
+            {value}
+          </p>
+        )}
       </div>
     </div>
   );

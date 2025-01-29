@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import { Navbar } from "../components/Navbar";
 import Title from "../components/Title";
 import BookmarkButton from "../components/BookmarkButton";
-
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../lib/store";
 import {

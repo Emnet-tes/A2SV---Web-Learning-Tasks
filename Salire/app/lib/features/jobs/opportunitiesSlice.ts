@@ -1,10 +1,10 @@
 import JobPostingsProps from "@/app/types/Job";
-import { createSlice,PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 const intialState: JobPostingsProps = {
-    success:false,
-        message:"",
-        data:[]
-}
+  success: false,
+  message: "",
+  data: [],
+};
 
 const opportunitiesSlice = createSlice({
   name: "opportunities",
@@ -29,5 +29,10 @@ const opportunitiesSlice = createSlice({
   },
 });
 
-export const { setOpportunities, setOpportunitiesSuccess, setOpportunitiesMessage,toggleBookMark } = opportunitiesSlice.actions;
+export const {
+  setOpportunities,
+  setOpportunitiesSuccess,
+  setOpportunitiesMessage,
+  toggleBookMark,
+} = opportunitiesSlice.actions;
 export default opportunitiesSlice.reducer;

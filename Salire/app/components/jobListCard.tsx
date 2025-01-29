@@ -9,43 +9,38 @@ function JobListCard({
   logoUrl,
   location,
   opType,
-  id,
 }: JobListProps) {
-   function opTypeMatch(){
-      if(opType === 'inPerson'){
-    return (
-      
-      <button
-        className={`bg-green-100 hover:bg-green-500 ${epilogue.className} font-semiBold text-[12px] leading-[160%]  text-center text-green-700 hover:text-white py-1 px-4 hover:border-transparent rounded-full`}
-        style={{ fontWeight: 600 }}
-      >
-        {opType}
-      </button>
-    );
-}  
-if(opType === 'virtual'){
-  return(
-    <button
-   className={`bg-transparent border border-[#FFB836] hover:bg-yellow-400 hover:text-white ${epilogue.className} text-[12px] leading-[160%] text-[#FFB836] text-center font-semi-bold py-1 px-4 rounded-full`}
-   style={{ fontWeight: 600 }}
- >
-   {opType}
- </button>
-  )
- ;
+  function opTypeMatch() {
+    if (opType === "inPerson") {
+      return (
+        <button
+          className={`bg-green-100 hover:bg-green-500 ${epilogue.className} font-semiBold text-[12px] leading-[160%]  text-center text-green-700 hover:text-white py-1 px-4 hover:border-transparent rounded-full`}
+          style={{ fontWeight: 600 }}
+        >
+          {opType}
+        </button>
+      );
+    }
+    if (opType === "virtual") {
+      return (
+        <button
+          className={`bg-transparent border border-[#FFB836] hover:bg-yellow-400 hover:text-white ${epilogue.className} text-[12px] leading-[160%] text-[#FFB836] text-center font-semi-bold py-1 px-4 rounded-full`}
+          style={{ fontWeight: 600 }}
+        >
+          {opType}
+        </button>
+      );
+    } else {
+      return (
+        <button
+          className={`bg-transparent border border-[#4640DE] hover:bg-[#4640DE] hover:text-white ${epilogue.className} text-[12px] leading-[160%] text-[#4640DE] text-center hover:bg-blue-700 py-1 px-4 rounded-full`}
+          style={{ fontWeight: 600 }}
+        >
+          {opType}
+        </button>
+      );
+    }
   }
-  else{
-    return (
-      <button
-        className={`bg-transparent border border-[#4640DE] hover:bg-[#4640DE] hover:text-white ${epilogue.className} text-[12px] leading-[160%] text-[#4640DE] text-center hover:bg-blue-700 py-1 px-4 rounded-full`}
-        style={{ fontWeight: 600 }}
-      >
-        {opType}
-      </button>
-    );
-  }
-
-}
   return (
     <div className="relative flex w-full max-w-[56rem]  my-5 ">
       <div className="relative pt-4 overflow-hidden bg-transparent rounded-xl mx-5">
@@ -96,10 +91,7 @@ if(opType === 'virtual'){
           </p>
         </div>
 
-        <div className="items-start space-x-2">
-{opTypeMatch()}
-       
-        </div>
+        <div className="items-start space-x-2">{opTypeMatch()}</div>
       </div>
     </div>
   );

@@ -16,22 +16,20 @@ const Bookmarks: React.FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-   
-      const loadBookmarks = async () => {
-        try {
-          const data = await fetchBookmarks();
-          dispatch(setBookmark(data));
-        } catch (error) {
-          console.error("Error fetching bookmarks:", error);
-        } finally {
-          setLoading(false);
-        }
-      };
+    const loadBookmarks = async () => {
+      try {
+        const data = await fetchBookmarks();
+        dispatch(setBookmark(data));
+      } catch (error) {
+        console.error("Error fetching bookmarks:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-      loadBookmarks();
- 
-      setLoading(false);
-    
+    loadBookmarks();
+
+    setLoading(false);
   }, [bookmarks.length, dispatch]);
 
   return (

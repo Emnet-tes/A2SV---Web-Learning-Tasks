@@ -1,7 +1,8 @@
 import React from "react";
 import { epilogue } from "@/app/ui/fonts";
-interface Props{
-  text:string
+
+interface Props {
+  text: string;
 }
 
 export const RequiredSkillsCard = ({ text }: Props) => {

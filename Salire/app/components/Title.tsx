@@ -1,6 +1,7 @@
 import { epilogue, poppins } from "@/app/ui/fonts";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import navProps from "../types/nav";
+
 export default function Title({ resultNo, title }: navProps) {
   return (
     <div className="flex-col   ">

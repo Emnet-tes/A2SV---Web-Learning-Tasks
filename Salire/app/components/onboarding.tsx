@@ -1,11 +1,10 @@
-import Link from 'next/link';
-import React from 'react'
-import Image from 'next/image'
-import { epilogue, poppins } from '@/app/ui/fonts';
+import Link from "next/link";
+import React from "react";
+import Image from "next/image";
+import {poppins } from "@/app/ui/fonts";
 export const Onboarding = () => {
   return (
     <div className="flex flex-col h-screen bg-gray-100">
-     
       <main className=" justify-center items-center flex  p-5 space-x-[40px]">
         <div className="flex-col  items-center space-y-8 ">
           <h5
@@ -34,4 +33,4 @@ export const Onboarding = () => {
       </main>
     </div>
   );
-}
+};

@@ -2,7 +2,6 @@
 
 import { epilogue, poppins } from "@/app/ui/fonts";
 import { useUser } from "@/contexts/UserContext";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";

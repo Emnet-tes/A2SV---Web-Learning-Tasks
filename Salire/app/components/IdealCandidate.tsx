@@ -1,10 +1,10 @@
 import React from "react";
-import { epilogue, poppins } from "@/app/ui/fonts";
+import { epilogue } from "@/app/ui/fonts";
 import { LuDot } from "react-icons/lu";
-interface Props{
-  text:string
-}
 
+interface Props {
+  text: string;
+}
 
 export const IdealCandidate = ({ text }: Props) => {
   const parts = text.split(":");

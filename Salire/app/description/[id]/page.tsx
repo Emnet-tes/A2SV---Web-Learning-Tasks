@@ -132,7 +132,7 @@ export default async function Id({ searchParams }: IdProps) {
 
           {/* required skills */}
           <p className="border-b"></p>
-          
+
           <div className=" max-w-[294px] max-h-[121px] space-y-[24px] flex-col">
             <h5
               className={`${poppins.className}  text-[24px] leading-[120%] text-[#25324B] text-left `}

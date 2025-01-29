@@ -2,8 +2,8 @@ import React from "react";
 import { epilogue, poppins } from "@/app/ui/fonts";
 import Image from "next/image";
 
-interface Props{
-  text:string
+interface Props {
+  text: string;
 }
 export const ResponsibilitesCard = ({ text }: Props) => {
   return (
