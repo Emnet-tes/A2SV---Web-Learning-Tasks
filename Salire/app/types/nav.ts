@@ -1,5 +1,4 @@
-
-export default interface navProps{
-    resultNo:number
-    title:string
+export default interface navProps {
+  resultNo: number;
+  title: string;
 }

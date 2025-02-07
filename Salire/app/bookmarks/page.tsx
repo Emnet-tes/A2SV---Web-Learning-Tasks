@@ -9,7 +9,7 @@ import { fetchBookmarks } from "../types";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../lib/store";
 import { setBookmark } from "../lib/features/jobs/bookMarkSlice";
-
+import { toast } from "react-toastify";
 const Bookmarks: React.FC = () => {
   const bookmarks = useSelector((state: RootState) => state.bookMarks);
   const [loading, setLoading] = useState(true);
@@ -21,7 +21,10 @@ const Bookmarks: React.FC = () => {
         const data = await fetchBookmarks();
         dispatch(setBookmark(data));
       } catch (error) {
-        console.error("Error fetching bookmarks:", error);
+        toast.error("Unknown error", {
+          position: "top-center",
+          autoClose: 2000,
+        });
       } finally {
         setLoading(false);
       }

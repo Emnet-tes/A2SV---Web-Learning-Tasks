@@ -1,12 +1,15 @@
 import JobPostingProps, { BookmarkingsProps } from "@/app/types/Job";
-
+import { toast } from "react-toastify";
 export async function addBookmark(_id: string) {
   try {
     const accessToken = localStorage.getItem("accessToken");
 
     // Check if accessToken is available
     if (!accessToken) {
-      alert("Access token is missing.");
+      toast.error("Server error", {
+        position: "top-center",
+        autoClose: 2000,
+      });
       return;
     }
 
@@ -23,15 +26,21 @@ export async function addBookmark(_id: string) {
     );
 
     if (!res.ok) {
-      const errorData = await res.json(); // Parse the error response
-      console.error("Error details:", errorData);
-      alert(`Failed to add bookmark: ${errorData.message || "Unknown error"}`);
+      toast.error("Unknown error", {
+        position: "top-center",
+        autoClose: 2000,
+      });
     } else {
-      alert("Bookmark added successfully!");
+      toast.success("Bookmark added", {
+        position: "top-center",
+        autoClose: 2000,
+      });
     }
   } catch (error) {
-    console.error("An error occurred:", error);
-    alert("An unexpected error occurred. Please try again later.");
+    toast.error("Unknown error", {
+      position: "top-center",
+      autoClose: 2000,
+    });
   }
 }
 
@@ -51,7 +60,10 @@ export async function deleteBookmark(_id: string) {
   if (!res.ok) {
     throw new Error("failed to add data");
   } else {
-    alert("Bookmark deleted successfully!");
+    toast.success("Bookmark deleted", {
+      position: "top-center",
+      autoClose: 2000,
+    });
   }
 }
 

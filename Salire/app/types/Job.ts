@@ -1,17 +1,16 @@
-export default interface JobPostingsProps{
-    success:boolean,
-    message:string,
-    data:JobPost[]
+export default interface JobPostingsProps {
+  success: boolean;
+  message: string;
+  data: JobPost[];
 }
 
-export  interface BookmarkingsProps{
-    success:boolean,
-    message:string,
-    data:Bookmark[]
+export interface BookmarkingsProps {
+  success: boolean;
+  message: string;
+  data: Bookmark[];
 }
 
-
- export interface JobPost {
+export interface JobPost {
   id: string;
   title: string;
   description: string;
@@ -45,30 +44,22 @@ export  interface BookmarkingsProps{
   total_reviews: number;
 }
 
-
-
-export interface JobListProps{
-    title: string;
+export interface JobListProps {
+  title: string;
   orgName: string;
   description: string;
   logoUrl: string;
- location:string[];
- opType:string;
- id:string
+  location: string[];
+  opType: string;
+  id: string;
 }
-export interface Bookmark{
-   eventID: string;          
-  title: string;            
-  opType:string; 
-  orgName: string;           
-  datePosted: string;       
-  dateBookmarked?: string;   
-  logoUrl?: string;          
-  location: string; 
+export interface Bookmark {
+  eventID: string;
+  title: string;
+  opType: string;
+  orgName: string;
+  datePosted: string;
+  dateBookmarked?: string;
+  logoUrl?: string;
+  location: string;
 }
-
-
-
-
-
-

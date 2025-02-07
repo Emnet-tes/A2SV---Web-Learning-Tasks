@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { useUser } from "../../contexts/UserContext";
-
+import { toast } from "react-toastify";
 const SignIn = () => {
   const {
     register,
@@ -29,19 +29,30 @@ const SignIn = () => {
         const result = await response.json();
         localStorage.setItem("accessToken", result.data.accessToken);
 
-        alert("Logged in");
-        setIsLoggedIn(true);
-        Cookie.set("currentUser", result.data.accessToken, {
-          expires: 240 / 1440,
-          path: "/",
+        toast.success("Logged in", {
+          position: "top-center",
+          autoClose: 2000,
         });
-        router.push("/Home");
+
+        setIsLoggedIn(true);
+        setTimeout(() => {
+          Cookie.set("currentUser", result.data.accessToken, {
+            expires: 240 / 1440,
+            path: "/",
+          });
+          router.push("/Home");
+        }, 1999);
       } else {
-        console.error("Sign-in failed:", response.statusText);
-        alert("Not Logged in");
+        toast.error("Invalid user data", {
+          position: "top-center",
+          autoClose: 2000,
+        });
       }
     } catch (error) {
-      console.error("Error during sign-in:", error);
+      toast.error("Login failed", {
+        position: "top-center",
+        autoClose: 2000,
+      });
     }
   };
 

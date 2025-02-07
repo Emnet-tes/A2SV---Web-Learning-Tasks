@@ -5,6 +5,7 @@ import { useUser } from "@/contexts/UserContext";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 interface FormData {
   name: string;
@@ -19,10 +20,12 @@ const SignUp: React.FC = () => {
     formState: { errors },
   } = useForm<FormData>();
   const router = useRouter();
-  const { setUser } = useUser();
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     if (data.password !== data.confirmPassword) {
-      alert("passwords do not match");
+      toast.error("passwords do not match", {
+        position: "top-center",
+        autoClose: 2000,
+      });
       return;
     }
     try {
@@ -35,17 +38,26 @@ const SignUp: React.FC = () => {
       });
 
       if (response.ok) {
-        alert("signup successfull");
-
+        toast.success("signup successfull", {
+          position: "top-center",
+          autoClose: 2000,
+        });
         localStorage.setItem("currentEmail", data.email);
-        router.push("/Verify");
+        setTimeout(() => {
+          router.push("/Verify");
+        }, 1999);
       } else {
         const error = await response.json();
-        alert(error.message || "signup failed");
+        toast.error("signup failed", {
+          position: "top-center",
+          autoClose: 2000,
+        });
       }
     } catch (error) {
-      console.error("error during sign-up:", error);
-      alert("an error occured during signup");
+      toast.error("Unknown error", {
+        position: "top-center",
+        autoClose: 2000,
+      });
     }
   };
 

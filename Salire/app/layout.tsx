@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
-import { Epilogue, Inter, Poppins } from "next/font/google";
+import { Inter } from "next/font/google";
 import { UserProvider } from "@/contexts/UserContext";
 import { SessionProvider } from "next-auth/react";
 import "./globals.css";
-
+import { ToastContainer } from "react-toastify";
 const inter = Inter({ subsets: ["latin"] });
-const poppins = Poppins({ subsets: ["latin"], weight: ["900"] });
-const epilogue = Epilogue({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <UserProvider>
+          <ToastContainer />
           <SessionProvider>{children}</SessionProvider>
         </UserProvider>
       </body>
