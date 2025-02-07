@@ -35,11 +35,11 @@ const SignIn = () => {
         });
 
         setIsLoggedIn(true);
+        Cookie.set("currentUser", result.data.accessToken, {
+          expires: 240 / 1440,
+          path: "/",
+        });
         setTimeout(() => {
-          Cookie.set("currentUser", result.data.accessToken, {
-            expires: 240 / 1440,
-            path: "/",
-          });
           router.push("/Home");
         }, 1999);
       } else {
